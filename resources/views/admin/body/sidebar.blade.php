@@ -1,7 +1,7 @@
 <nav class="sidebar">
     <div class="sidebar-header">
         <a href="{{ url('/') }}" class="sidebar-brand" target="_blank">
-            Elhaam<span>BD</span>
+            EmpoTech <span>BD</span>
         </a>
     </div>
 

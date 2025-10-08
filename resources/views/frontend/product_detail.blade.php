@@ -1,4 +1,4 @@
-<title>{{ $selected_product->name }} - Elhaam BD</title>
+<title>{{ $selected_product->name }} - ECOM EmpoTech</title>
 @extends('frontend.frontend_dashboard')
 @section('main')
 
@@ -363,7 +363,7 @@
                 <div class="col-12">
                     <div class="slider-6_1 product-wrapper">
                         @forelse ($related_products->totalProducts as $product)
-                            @if ($product->products->id != $category_product->product_id)
+                            @if ($product->products && $product->products->id != $category_product->product_id)
                                 <div>
                                     <div class="product-box-3 wow fadeInUp">
                                         <div class="product-header">

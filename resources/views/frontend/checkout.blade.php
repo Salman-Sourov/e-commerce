@@ -1,4 +1,4 @@
-<title>Checkout - Elhaam BD</title>
+<title>Checkout - ECOM EmpoTech</title>
 @extends('frontend.frontend_dashboard')
 @section('main')
     <!-- Cart Section Start -->
@@ -38,7 +38,7 @@
                                     @csrf
 
                                     <div class="col-12">
-                                        <div class="form-floating theme-form-floating">
+                                        <div class="form-floating theme-form-floating mb-3">
                                             <input type="text" name="name" class="form-control" id="fullname"
                                                 placeholder="Full Name" value="{{ Auth::check() ? Auth::user()->name : '' }}" 
                                                 {{ Auth::check()}}>
@@ -46,7 +46,7 @@
                                             <span id="name_error" class="text-danger"></span>
                                         </div>
 
-                                        <div class="col-12 mb-2">
+                                        <div class="col-12 mb-3">
                                             <div class="form-floating theme-form-floating">
                                                 <input type="text" name="phone" class="form-control" id="phone"
                                                     placeholder="phone" value="{{ Auth::check() ? Auth::user()->phone : '' }}" 
@@ -56,16 +56,17 @@
                                             </div>
                                         </div>
 
-                                        <div class="col-12 mb-2">
+                                        <div class="col-12 mb-3">
                                             <div class="form-floating theme-form-floating">
                                                 <input type="text" name="address" class="form-control" id="address"
-                                                    placeholder="Address">
+                                                    placeholder="Address" value="{{ Auth::check() ? Auth::user()->address : '' }}" 
+                                                    {{ Auth::check() }}>
                                                 <label for="email">Address (ঠিকানা)</label>
                                                 <span id="address_error" class="text-danger"></span>
                                             </div>
                                         </div>
 
-                                        <div class="col-12 mb-2">
+                                        <div class="col-12 mb-3">
                                             <div class="form-floating theme-form-floating">
                                                 <select class="form-select" id="area" name="area">
                                                     <option value="">Select Area</option>
@@ -79,7 +80,7 @@
                                             </div>
                                         </div>
 
-                                        <div class="col-12 mb-2">
+                                        <div class="col-12 mb-3">
                                             <div class="form-floating theme-form-floating">
                                                 <select class="form-select" id="payment-option"
                                                     onchange="toggleTransactionField()" name="payment_option">
@@ -92,7 +93,7 @@
                                             </div>
                                         </div>
 
-                                        <div class="col-12 mb-2" id="transaction-field" style="display: none;">
+                                        <div class="col-12 mb-3b" id="transaction-field" style="display: none;">
                                             <div class="form-floating theme-form-floating">
                                                 <input type="text" name="bkash" class="form-control" id="transaction"
                                                     placeholder="Bkash No or Transaction No">

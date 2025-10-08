@@ -1,4 +1,4 @@
-<title>{{ $brand_name->name }} - Elhaam BD</title>
+<title>{{ $brand_name->name }} - ECOM EmpoTech</title>
 @extends('frontend.frontend_dashboard')
 @section('main')
     <section class="breadscrumb-section pt-0">

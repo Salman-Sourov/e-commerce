@@ -1,4 +1,4 @@
-<title>{{ request('search') }} - Elhaam BD</title>
+<title>{{ request('search') }} - ECOM EmpoTech</title>
 @extends('frontend.frontend_dashboard')
 @section('main')
     <!-- Product Section Start -->

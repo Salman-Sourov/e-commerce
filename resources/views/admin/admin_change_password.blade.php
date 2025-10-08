@@ -12,13 +12,9 @@
                     <div class="card-body">
                         <div class="d-flex align-items-center justify-content-between mb-2">
                             <div>
-                                <img class="wd-100 rounded-circle"
-                                    src="{{url('upload/no_image.jpg') }}"
-                                    alt="profile">
+                                <img class="wd-100 rounded-circle" src="{{ asset('frontend') }}/assets/images/logo/ElhaamBD_logo.png" alt="profile">
                             </div>
-
                         </div>
-
                         <div class="mt-3">
                             <label class="tx-11 fw-bolder mb-0 text-uppercase">Name:</label>
                             <p class="text-muted">{{ $profileData->name }}</p>
@@ -30,17 +26,6 @@
                         <div class="mt-3">
                             <label class="tx-11 fw-bolder mb-0 text-uppercase">Phone:</label>
                             <p class="text-muted">{{ $profileData->phone }}</p>
-                        </div>
-                        <div class="mt-3 d-flex social-links">
-                            <a href="javascript:;" class="btn btn-icon border btn-xs me-2">
-                                <i data-feather="github"></i>
-                            </a>
-                            <a href="javascript:;" class="btn btn-icon border btn-xs me-2">
-                                <i data-feather="twitter"></i>
-                            </a>
-                            <a href="javascript:;" class="btn btn-icon border btn-xs me-2">
-                                <i data-feather="instagram"></i>
-                            </a>
                         </div>
                     </div>
                 </div>

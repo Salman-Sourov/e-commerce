@@ -165,7 +165,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="col-sm-3">
+                                    {{-- <div class="col-sm-3">
                                         <div class="form-group mb-3">
                                             <label class="form-label">Length</label>
                                             <input type="text" name="length" class="form-control" placeholder="N/A"
@@ -195,7 +195,7 @@
                                             <input type="text" name="weight" class="form-control" placeholder="N/A"
                                                 value="{{ old('weight', $product->weight) }}">
                                         </div>
-                                    </div>
+                                    </div> --}}
 
                                     <div class="col-sm-12">
                                         <div class="mb-3">

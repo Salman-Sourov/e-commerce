@@ -11,7 +11,7 @@ use App\Http\Controllers\admin\BrandController;
 use App\Http\Controllers\admin\CategoryController;
 use App\Http\Controllers\admin\OrderController;
 use App\Http\Controllers\admin\SubCategoryController;
-use App\Http\Controllers\indexController;
+use App\Http\Controllers\IndexController;
 use App\Http\Controllers\ProductStockController;
 use App\Http\Controllers\LangController;
 use App\Http\Controllers\CartController;
@@ -19,10 +19,10 @@ use App\Http\Controllers\admin\SettingController;
 
 
 Route::get('/lang-change/{lang}', [LangController::class, 'langChange'])->name('lang.change');
-Route::get('/', [indexController::class, 'index'])->name('index');
-Route::get('/category-details/{id}', [indexController::class, 'categoryDetails'])->name('category.details');
-Route::get('/brand-details/{id}', [indexController::class, 'brandDetails'])->name('brand.details');
-Route::get('/product-details/{id}', [indexController::class, 'productDetails'])->name('product.details');
+Route::get('/', [IndexController::class, 'index'])->name('index');
+Route::get('/category-details/{id}', [IndexController::class, 'categoryDetails'])->name('category.details');
+Route::get('/brand-details/{id}', [IndexController::class, 'brandDetails'])->name('brand.details');
+Route::get('/product-details/{id}', [IndexController::class, 'productDetails'])->name('product.details');
 
 Route::post('/cart/add', [CartController::class, 'add'])->name('cart.add');
 Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
@@ -34,16 +34,18 @@ Route::post('/buy/now', [CartController::class, 'buyNow'])->name('buy.now');
 Route::get('/checkout', [CartController::class, 'checkout'])->name('checkout');
 
 //Confirm Order
-Route::post('/confirm/order', [indexController::class, 'confirmOrder'])->name('confirm.order');
+Route::post('/confirm/order', [IndexController::class, 'confirmOrder'])->name('confirm.order');
 
 //SearchProduct
-Route::post('/product/search', [indexController::class, 'productSearch'])->name('product.search');
-Route::get('/mobile/product/search', [indexController::class, 'mobileProductSearch'])->name('mobile.product.search');
+Route::post('/product/search', [IndexController::class, 'productSearch'])->name('product.search');
+Route::get('/mobile/product/search', [IndexController::class, 'mobileProductSearch'])->name('mobile.product.search');
 
 Route::middleware(['auth', 'role:user'])->group(function () {
     // Route::get('/user', [Usercontroller::class, 'home'])->name('home');
     Route::get('/user-dashboard', [UserController::class, 'userDashboard'])->name('user.dashboard');
     Route::get('/user/logout', [Usercontroller::class, 'userLogout'])->name('user.logout');
+    Route::post('/user/profile/update', [UserController::class, 'UpdateProfile'])->name('user.profile.update');
+
 }); //End Group Admin Middleware
 
 //Admin Management Group Middleware
@@ -119,8 +121,5 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
         Route::get('/delte/featured_products/{id}', 'deleteFeaturedProducts')->name('delete.featured.products');
     });
 }); //End Group Admin Middleware
-
-
-
 
 require __DIR__ . '/auth.php';

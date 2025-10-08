@@ -1,4 +1,4 @@
-    <title>User Dashboard - Elhaam BD</title>
+    <title>User Dashboard - ECOM EmpoTech</title>
     @extends('frontend.frontend_dashboard')
     @section('main')
         <!-- Breadcrumb Section Start -->
@@ -71,7 +71,8 @@
                     <div class="col-xxl-9 col-lg-8">
                         <div class="dashboard-right-sidebar">
                             <div class="tab-content" id="pills-tabContent">
-                                <button class="btn left-dashboard-show btn-animation btn-md fw-bold d-block mb-4 d-lg-none">Show
+                                <button
+                                    class="btn left-dashboard-show btn-animation btn-md fw-bold d-block mb-4 d-lg-none">Show
                                     Menu</button>
                                 <div class="tab-pane fade show active" id="pills-dashboard" role="tabpanel"
                                     aria-labelledby="pills-dashboard-tab">
@@ -89,16 +90,30 @@
 
                                         <div class="row g-4">
                                             <div class="col-xxl-12">
-                                                <form method="POST" action="">
+                                                <form method="POST" action="{{ route('user.profile.update') }}">
                                                     @csrf
+
                                                     <!-- Phone Number -->
                                                     <div class="form-floating theme-form-floating mb-3">
                                                         <input type="text" name="phone" class="form-control"
                                                             id="phone" placeholder="Phone Number"
-                                                            value="{{ Auth::check() ? Auth::user()->phone : '' }}" required>
+                                                            value="{{ Auth::check() ? Auth::user()->phone : '' }}">
                                                         <label for="phone">Phone Number (ফোন নাম্বার)</label>
                                                         <span class="text-danger">
                                                             @error('phone')
+                                                                {{ $message }}
+                                                            @enderror
+                                                        </span>
+                                                    </div>
+
+                                                    <!-- Email -->
+                                                    <div class="form-floating theme-form-floating mb-3">
+                                                        <input type="email" name="email" class="form-control"
+                                                            id="email" placeholder="Email Address"
+                                                            value="{{ Auth::check() ? Auth::user()->email : '' }}">
+                                                        <label for="email">Email Address (ইমেইল)</label>
+                                                        <span class="text-danger">
+                                                            @error('email')
                                                                 {{ $message }}
                                                             @enderror
                                                         </span>
@@ -108,8 +123,7 @@
                                                     <div class="form-floating theme-form-floating mb-3">
                                                         <input type="text" name="address" class="form-control"
                                                             id="address" placeholder="Address"
-                                                            value="{{ Auth::check() ? Auth::user()->address : '' }}"
-                                                            required>
+                                                            value="{{ Auth::check() ? Auth::user()->address : '' }}">
                                                         <label for="address">Address (ঠিকানা)</label>
                                                         <span class="text-danger">
                                                             @error('address')
@@ -118,7 +132,7 @@
                                                         </span>
                                                     </div>
 
-                                                    <!-- Change Password -->
+                                                    <!-- New Password -->
                                                     <div class="form-floating theme-form-floating mb-3">
                                                         <input type="password" name="password" class="form-control"
                                                             id="password" placeholder="New Password">
@@ -149,9 +163,17 @@
                                                         <button type="submit" class="btn btn-animation">Update
                                                             Profile</button>
                                                     </div>
+
+                                                    <!-- Success Message -->
+                                                    @if (session('success'))
+                                                        <div class="alert alert-success mt-3">
+                                                            {{ session('success') }}
+                                                        </div>
+                                                    @endif
                                                 </form>
                                             </div>
                                         </div>
+
                                     </div>
                                 </div>
 
@@ -300,33 +322,31 @@
     @endsection
 
     <script>
-        document.addEventListener("DOMContentLoaded", function () {
+        document.addEventListener("DOMContentLoaded", function() {
             let sidebar = document.querySelector(".dashboard-left-sidebar");
             let showMenuBtn = document.querySelector(".left-dashboard-show");
             let closeMenuBtn = document.querySelector(".close-sidebar");
             let sidebarLinks = document.querySelectorAll(".user-nav-pills .nav-link");
-    
+
             // Show Sidebar
             if (showMenuBtn) {
-                showMenuBtn.addEventListener("click", function () {
+                showMenuBtn.addEventListener("click", function() {
                     sidebar.classList.add("active");
                 });
             }
-    
+
             // Close Sidebar
             if (closeMenuBtn) {
-                closeMenuBtn.addEventListener("click", function () {
+                closeMenuBtn.addEventListener("click", function() {
                     sidebar.classList.remove("active");
                 });
             }
-    
+
             // Close Sidebar when clicking any sidebar link
             sidebarLinks.forEach(link => {
-                link.addEventListener("click", function () {
+                link.addEventListener("click", function() {
                     sidebar.classList.remove("active");
                 });
             });
         });
     </script>
-    
-    

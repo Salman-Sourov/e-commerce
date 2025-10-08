@@ -76,15 +76,6 @@ class indexController extends Controller
 
         $selected_product = Product::with('multi_images', 'attribute_set',)->findOrFail($id);
 
-        // Generate the slug from the product's name
-        // $generatedSlug = Str::slug($selected_product->name);
-
-        // // Check if the slug in the URL matches the generated one
-        // if ($slug !== $generatedSlug) {
-        //     // Redirect to the correct URL with the correct slug
-        //     return redirect()->route('product.details', ['id' => $id, 'slug' => $generatedSlug]);
-        // }
-
         $attributes = Product_with_attribute::where('product_id', $id)->first();
 
         $category_product = Product_category_product::with('products', 'category_detail')

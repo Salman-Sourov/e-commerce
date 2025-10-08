@@ -12,6 +12,7 @@ use Illuminate\View\View;
 use App\Models\Brand;
 use App\Models\Product;
 use App\Models\Product_category;
+use Hash;
 
 class AuthenticatedSessionController extends Controller
 {
@@ -29,23 +30,42 @@ class AuthenticatedSessionController extends Controller
     /**
      * Handle an incoming authentication request.
      */
-    public function store(LoginRequest $request): RedirectResponse
+    public function store(Request $request)
     {
+        // Validate inputs
+        $request->validate([
+            'email' => 'required|email',
+            'password' => 'required|string',
+        ]);
 
-        $request->authenticate();
-        $request->session()->regenerate();
+        // Find user by email
+        $user = \App\Models\User::where('email', $request->email)->first();
 
-        $notification = '';
-
-        $url = '';
-        if ($request->user()->role === 'admin') {
-            $url = 'admin/dashboard';
-        } elseif ($request->user()->role === 'user') {
-            $url = '/user-dashboard';
+        // Email not found
+        if (!$user) {
+            return back()->withErrors(['email' => 'No account found with this email address.'])->withInput();
         }
 
-        return redirect()->intended($url)->with($notification);
+        // Incorrect password
+        if (!\Hash::check($request->password, $user->password)) {
+            return back()->withErrors(['password' => 'Incorrect password. Please try again.'])->withInput();
+        }
+
+        // Login user
+        \Auth::login($user);
+        $request->session()->regenerate();
+
+        // Redirect based on role
+        if ($user->role === 'admin') {
+            return redirect()->intended('admin/dashboard')->with('success', 'Welcome back, Admin!');
+        } elseif ($user->role === 'user') {
+            return redirect()->intended('/user-dashboard')->with('success', 'Login successful!');
+        } else {
+            return redirect()->intended('/')->with('success', 'Logged in successfully!');
+        }
     }
+
+
 
     /**
      * Destroy an authenticated session.

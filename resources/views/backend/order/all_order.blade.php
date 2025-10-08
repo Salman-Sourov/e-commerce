@@ -30,7 +30,7 @@
                                         @foreach ($orders as $key => $item)
                                             <tr>
                                                 <td>{{ $key + 1 }}</td>
-                                                <td>#elhaambd{{ $item->id }}</td>
+                                                <td>#order{{ $item->id }}</td>
                                                 <td>{{ $item->name }}</td>
                                                 <td>{{ $item->phone }}</td>
                                                 <td>{{ $item->address }}</td>

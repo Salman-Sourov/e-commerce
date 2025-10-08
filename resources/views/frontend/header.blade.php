@@ -15,7 +15,7 @@
                             <div class="notification-slider">
                                 <div>
                                     <div class="timer-notification">
-                                        <h6><strong class="me-1">Welcome to Elhaam BD. </strong>Wrap new
+                                        <h6><strong class="me-1">Welcome to ECOM EmpoTech. </strong>Wrap new
                                             offers/gift.
 
                                         </h6>
@@ -145,13 +145,14 @@
                                         </div>
                                     </li>
                                     <li class="right-side">
-                                        <a href="tel:+8801791586242" class="delivery-login-box">
+                                        <a href="https://wa.me/8801521406205" target="_blank"
+                                            class="delivery-login-box">
                                             <div class="delivery-icon">
                                                 <i data-feather="phone-call"></i>
                                             </div>
                                             <div class="delivery-detail">
                                                 <h6>24/7 Delivery</h6>
-                                                <h5>+8801791586242</h5>
+                                                <h5>+8801521406205</h5>
                                             </div>
                                         </a>
                                     </li>
@@ -268,14 +269,6 @@
                                                         <a href="{{ route('register') }}">Register</a>
                                                     </li>
                                                 @endguest
-
-
-                                                {{-- <li class="product-box-contain">
-                                                        <a href="forgot.html">Forgot Password</a>
-                                                    </li> --}}
-
-
-
                                             </ul>
                                         </div>
                                     </li>
@@ -447,10 +440,10 @@
                                                     class="nav-link">{{ __('content.about') }}</a>
                                             </li>
 
-                                            <li class="nav-item dropdown">
+                                            {{-- <li class="nav-item dropdown">
                                                 <a class="nav-link dropdown-toggle" href="javascript:void(0)"
                                                     data-bs-toggle="dropdown">{{ __('content.blog') }}</a>
-                                            </li>
+                                            </li> --}}
                                         </ul>
                                     </div>
                                 </div>

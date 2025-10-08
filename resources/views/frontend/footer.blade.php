@@ -7,8 +7,8 @@
                         <div class="service-contain">
                             <div class="service-box">
                                 <div class="service-image">
-                                    <img src="{{ asset('frontend') }}/assets/svg/product.svg"
-                                        class="blur-up lazyload" alt="">
+                                    <img src="{{ asset('frontend') }}/assets/svg/product.svg" class="blur-up lazyload"
+                                        alt="">
                                 </div>
 
                                 <div class="service-detail">
@@ -18,8 +18,8 @@
 
                             <div class="service-box">
                                 <div class="service-image">
-                                    <img src="{{ asset('frontend') }}/assets/svg/delivery.svg"
-                                        class="blur-up lazyload" alt="">
+                                    <img src="{{ asset('frontend') }}/assets/svg/delivery.svg" class="blur-up lazyload"
+                                        alt="">
                                 </div>
 
                                 <div class="service-detail">
@@ -29,8 +29,8 @@
 
                             <div class="service-box">
                                 <div class="service-image">
-                                    <img src="{{ asset('frontend') }}/assets/svg/discount.svg"
-                                        class="blur-up lazyload" alt="">
+                                    <img src="{{ asset('frontend') }}/assets/svg/discount.svg" class="blur-up lazyload"
+                                        alt="">
                                 </div>
 
                                 <div class="service-detail">
@@ -40,8 +40,8 @@
 
                             <div class="service-box">
                                 <div class="service-image">
-                                    <img src="{{ asset('frontend') }}/assets/svg/market.svg"
-                                        class="blur-up lazyload" alt="">
+                                    <img src="{{ asset('frontend') }}/assets/svg/market.svg" class="blur-up lazyload"
+                                        alt="">
                                 </div>
 
                                 <div class="service-detail">
@@ -69,18 +69,20 @@
                             </div>
 
                             <div class="footer-logo-contain">
-                                <p>Welcome to ElhaamBD!
+                                <p>Welcome to ECOM EmpoTechBD!
                                     Your go-to for quality products, great prices, and exceptional service.
-                                    We prioritize convenience, sustainability, and a seamless shopping experience. Shop confidently—your satisfaction is our mission!</p>
+                                    We prioritize convenience, sustainability, and a seamless shopping experience. Shop
+                                    confidently—your satisfaction is our mission!</p>
                                 <ul class="address">
                                     <li>
                                         <i data-feather="home"></i>
-                                        <a href="javascript:void(0)">House 36, Road-5, Block B, Banasree, <br> Rampura, Dhaka, Bangladesh,1219
+                                        <a href="javascript:void(0)">House 36, Road-5, Block B, Banasree, <br> Rampura,
+                                            Dhaka, Bangladesh,1219
                                         </a>
                                     </li>
                                     <li>
                                         <i data-feather="mail"></i>
-                                        <a href="javascript:void(0)">support@elhaambd.com </a>
+                                        <a href="javascript:void(0)">support@empotechbd.com </a>
                                     </li>
                                 </ul>
                             </div>
@@ -96,7 +98,8 @@
                             <ul>
                                 @forelse ($categories as $category)
                                     <li>
-                                        <a href="{{ route('category.details', $category->id) }}" class="text-content">{{ $category->name }}</a>
+                                        <a href="{{ route('category.details', $category->id) }}"
+                                            class="text-content">{{ $category->name }}</a>
                                     </li>
                                 @empty
                                     <!-- You can display a message if no categories are available -->
@@ -104,7 +107,7 @@
                                 @endforelse
                             </ul>
                         </div>
-                        
+
                     </div>
 
                     <div class="col-xl col-lg-2 col-sm-3">
@@ -171,17 +174,23 @@
                                         <i data-feather="phone"></i>
                                         <div class="contact-number">
                                             <h6 class="text-content">Hotline 24/7 :</h6>
-                                            <h5><a href="tel:+8801791586242">01791586242</a></h5>
+                                            <h5>
+                                                <a href="https://wa.me/8801521406205?text=Hello%20I%20want%20to%20know%20more%20about%20your%20services"
+                                                    target="_blank">
+                                                    01521406205
+                                                </a>
+                                            </h5>
+
                                         </div>
                                     </div>
-                                </li>                                
+                                </li>
 
                                 <li>
                                     <div class="footer-number">
                                         <i data-feather="mail"></i>
                                         <div class="contact-number">
                                             <h6 class="text-content">Email Address :</h6>
-                                            <h5>support@elhaambd.com</h5>
+                                            <h5>support@empotechbd.com</h5>
                                         </div>
                                     </div>
                                 </li>
@@ -211,7 +220,8 @@
 
             <div class="sub-footer section-small-space">
                 <div class="reserve">
-                    <h6 class="text-content">Developed by <strong><a href="https://www.empotechbd.com" target="_blank" style="color: #007bff; text-decoration: none;">Empotech BD</a></strong></h6>
+                    <h6 class="text-content">Developed by <strong><a href="https://www.empotechbd.com" target="_blank"
+                                style="color: #007bff; text-decoration: none;">Empotech BD</a></strong></h6>
                 </div>
 
                 {{-- <div class="payment">
@@ -223,12 +233,12 @@
                     <h6 class="text-content">Stay connected :</h6>
                     <ul>
                         <li>
-                            <a href="https://www.facebook.com/elhaambd42" target="_blank">
+                            <a href="https://www.facebook.com/empotechbdofficial" target="_blank">
                                 <i class="fa-brands fa-facebook-f"></i>
                             </a>
                         </li>
                         <li>
-                            <a href="https://www.linkedin.com/company/elhaambd/?viewAsMember=true" target="_blank">
+                            <a href="https://empotechbd.com/" target="_blank">
                                 <i class="fa-brands fa-linkedin"></i>
                             </a>
                         </li>

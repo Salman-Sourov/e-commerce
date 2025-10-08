@@ -142,7 +142,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="col-sm-3">
+                                    {{-- <div class="col-sm-3">
                                         <div class="form-group mb-3">
                                             <label class="form-label">Length</label>
                                             <input type="text" name="length" class="form-control"
@@ -184,7 +184,7 @@
                                                 <span class="text-danger">{{ $message }}</span>
                                             @enderror
                                         </div>
-                                    </div>
+                                    </div> --}}
 
                                     <div class="col-sm-12">
                                         <div class="mb-3">

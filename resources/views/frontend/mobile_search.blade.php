@@ -1,4 +1,4 @@
-<title>Seaarch - Elhaam BD</title>
+<title>Seaarch - ECOM EmpoTech</title>
 @extends('frontend.frontend_dashboard')
 @section('main')
     <!-- Breadcrumb Section Start -->

@@ -13,7 +13,6 @@
                 <div class="card">
                     <div class="card-body">
                         <h6 class="card-title">All Product</h6>
-
                         <div class="table-responsive">
                             <table id="dataTableExample" class="table">
                                 <thead>
@@ -22,10 +21,10 @@
                                         <th>Product Name</th>
                                         <th>Image</th>
                                         <th>Brand</th>
-                                        <th>Old Price</th>
+                                        {{-- <th>Old Price</th> --}}
                                         <th>Sale Price</th>
                                         <th>Stock</th>
-                                        <th>Status</th>
+                                        {{-- <th>Status</th> --}}
                                         <th>Action</th>
                                     </tr>
                                 </thead>
@@ -42,16 +41,16 @@
                                             <td>{{ $brand ? $brand->name : 'N/A' }}</td>
                                             <!-- Check if brand exists and display its name, otherwise 'N/A' -->
 
-                                            <td>৳ {{ $item->price }}</td>
+                                            {{-- <td>৳ {{ $item->price }}</td> --}}
                                             <td>৳ {{ $item->sale_price }}</td>
                                             <td>{{ $item->quantity }}</td>
-                                            <td>
+                                            {{-- <td>
                                                 @if ($item->status == 'active')
                                                     <span class="badge rounded-pill bg-success">Active</span>
                                                 @else
                                                     <span class="badge rounded-pill bg-danger">InActive</span>
                                                 @endif
-                                            </td>
+                                            </td> --}}
 
                                             <td>
                                                 <a href="{{ route('product.details', $item->id) }}"
@@ -66,10 +65,9 @@
 
                                                 <a href="javascript:void(0);" class="delete-btn btn btn-outline-danger btn-sm"
                                                     data-id="{{ $item->id }}" title="Delete">
-                                                    <i data-feather="trash-2"></i>
+                                                    <i data-feather="power"></i>
                                                 </a>
-                                                
-
+                                
                                                 <a href="{{ route('get.stock', $item->id) }}"
                                                     class="btn btn-outline-primary btn-sm mx-2" title="Variant & Stock">Variant & Stock
                                                 </a>
