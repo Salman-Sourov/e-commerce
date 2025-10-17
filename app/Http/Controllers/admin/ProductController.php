@@ -53,7 +53,7 @@ class ProductController extends Controller
             'brand_id' => 'required',
             'category_id' => 'required',
             'sub_category_id' => 'nullable',
-            'quantity' => 'required|integer',
+            'quantity' => 'nullable|integer',
             'price' => 'nullable|numeric',
             'sale_price' => 'required|numeric',
             'start_date' => 'nullable|date',
@@ -62,8 +62,8 @@ class ProductController extends Controller
             'wide' => 'nullable|numeric',
             'height' => 'nullable|numeric',
             'weight' => 'nullable|numeric',
-            'short_content' => 'nullable|string',
-            'description' => 'required|string',
+            'short_content' => 'required|string',
+            'description' => 'nullable|string',
             'thumbnail' => 'required|image|mimes:jpeg,png,jpg,webp,gif',
         ]);
 
@@ -86,7 +86,7 @@ class ProductController extends Controller
                 'status' => 'active',
                 'thumbnail' => $request->file('thumbnail') ? $directory . $imageName : null,
                 // 'sku' => $sku,
-                'quantity' => $request->quantity,
+                'quantity' => $request->quantity ?? 0,
                 'is_featured' => 0,
                 'brand_id' => $request->brand_id,
                 'is_variation' => $request->has('is_variation') ? 0 : 1,
@@ -215,7 +215,7 @@ class ProductController extends Controller
         // Validate the incoming request
         $request->validate([
             'product_name' => 'required|string|max:255',
-            'quantity' => 'required|integer',
+            'quantity' => 'nullable|integer',
             // 'price' => 'required|numeric',
             'sale_price' => 'required|numeric',
             'start_date' => 'nullable|date',
@@ -224,8 +224,8 @@ class ProductController extends Controller
             'wide' => 'nullable|numeric',
             'height' => 'nullable|numeric',
             'weight' => 'nullable|numeric',
-            'short_content' => 'nullable|string',
-            'description' => 'required|string',
+            'short_content' => 'required|string',
+            'description' => 'nullable|string',
 
         ]);
 
@@ -249,7 +249,7 @@ class ProductController extends Controller
             $product->name = $request->product_name;
             $product->description = $request->description;
             $product->content = $request->short_content;
-            $product->quantity = $request->quantity;
+            $product->quantity = $request->quantity ?? 0;
             $product->price = $request->price;
             $product->sale_price = $request->sale_price;
             // $product->status = $request->has('status') ? 'active' : 'inactive';

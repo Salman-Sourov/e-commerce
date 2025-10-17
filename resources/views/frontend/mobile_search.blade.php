@@ -1,4 +1,4 @@
-<title>Seaarch - ECOM EmpoTech</title>
+<title>Seaarch - EMPO BD</title>
 @extends('frontend.frontend_dashboard')
 @section('main')
     <!-- Breadcrumb Section Start -->

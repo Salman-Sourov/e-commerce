@@ -1,4 +1,4 @@
-<title>{{ $selected_product->name }} - ECOM EmpoTech</title>
+<title>{{ $selected_product->name }} - EMPO BD</title>
 @extends('frontend.frontend_dashboard')
 @section('main')
 
@@ -37,7 +37,6 @@
                                 <div class="row g-sm-4 g-2">
                                     <div class="col-12">
                                         <div class="product-main no-arrow">
-
                                             <div class="slider-image">
                                                 <img src="{{ asset($selected_product->thumbnail) }}" id="img-1"
                                                     data-zoom-image="{{ asset($selected_product->thumbnail) }}"
@@ -59,7 +58,6 @@
                                             @endforelse
                                         </div>
                                     </div>
-
                                     <div class="col-12">
                                         <div class="left-slider-image left-slider no-arrow slick-top">
                                             <div class="sidebar-image">
@@ -80,7 +78,6 @@
                                         </div>
                                     </div>
                                 </div>
-
                             </div>
                         </div>
 
@@ -105,8 +102,14 @@
                                 @endif
 
                                 <div class="price-rating">
-                                    <h3 class="theme-color price">৳ {{ $selected_product->sale_price }} <del
-                                            class="text-content">৳ {{ $selected_product->price }}</del></h3>
+                                    <h3 class="theme-color price" aria-label="Product pricing">
+                                        <span class="currency price">৳
+                                        </span>{{ number_format($selected_product->sale_price, 2) }}
+                                        @if ($selected_product->price)
+                                            <del class="text-content" aria-label="Original price">৳
+                                                {{ number_format($selected_product->price, 2) }}</del>
+                                        @endif
+                                    </h3>
                                 </div>
 
                                 <div class="procuct-contain">
@@ -207,13 +210,16 @@
 
                             <div class="pickup-box">
                                 <div class="product-info">
-                                    <ul class="product-info-list product-info-list-2">
-                                        <li>Type : <a
+                                    <ul class="product-info-list product-info-list-2 mb-2">
+                                        <li>Category : <a
                                                 href="javascript:void(0)">{{ $category_product->category_detail->name }}</a>
                                         </li>
-                                        {{-- <li>SKU : <a href="javascript:void(0)">{{ $selected_product->sku }}</a></li>
-                                        <li>Stock : <a href="javascript:void(0)">{{ $selected_product->quantity }}</a></li> --}}
                                     </ul>
+                                    {{-- <ul class="product-info-list product-info-list-2">
+                                        <li>Category : <a
+                                                href="javascript:void(0)">{{ $category_product->category_detail->name }}</a>
+                                        </li>
+                                    </ul> --}}
                                 </div>
                             </div>
 
@@ -267,16 +273,21 @@
                                 </li>
                             </ul>
 
-                            <div class="tab-content custom-tab" id="myTabContent">
-                                <div class="tab-pane fade show active" id="description" role="tabpanel"
-                                    aria-labelledby="description-tab">
-                                    <div class="product-description">
-                                        <div class="nav-desh">
-                                            <h5>{!! nl2br(e($selected_product->description)) !!}</h5>
+                            @if ($selected_product->description)
+                                <div class="tab-content custom-tab" id="myTabContent">
+                                    <div class="tab-pane fade show active" id="description" role="tabpanel"
+                                        aria-labelledby="description-tab">
+                                        <div class="product-description">
+                                            <div class="nav-desh">
+                                                <h5>{!! nl2br(e($selected_product->description)) !!}</h5>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            @else
+                                <p class="mt-4">No description available for this product.</p>
+                            @endif
+
                         </div>
                     </div>
                 </div>
@@ -325,18 +336,18 @@
                     <!-- Banner Section -->
                     <div class="ratio_156 pt-25">
                         <div class="home-contain">
-                            <img src="{{ asset('frontend') }}/assets/images/banner/empotech_bd_banner_3_1.jpg"
+                            <img src="{{ asset('frontend') }}/assets/images/banner/empobd_ad.jpg"
                                 class="bg-img blur-up lazyload" alt="">
                             <div class="home-detail p-top-left home-p-medium">
-                                <div>
+                                {{-- <div>
                                     <h6 class="text-black home-banner">Honey</h6>
                                     <h3 class="text-uppercase fw-normal"><span class="theme-color fw-bold">Freshes</span>
                                         Products</h3>
                                     <h3 class="fw-light">every hour</h3>
-                                    {{-- <button onclick="location.href = 'shop-left-sidebar.html';"
+                                    <button onclick="location.href = 'shop-left-sidebar.html';"
                                         class="btn btn-animation btn-md fw-bold mend-auto">Shop Now <i
-                                            class="fa-solid fa-arrow-right icon"></i></button> --}}
-                                </div>
+                                            class="fa-solid fa-arrow-right icon"></i></button>
+                                </div> --}}
                             </div>
                         </div>
                     </div>

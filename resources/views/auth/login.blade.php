@@ -32,7 +32,7 @@
                 <div class="col-xxl-4 col-xl-5 col-lg-6 col-sm-8 mx-auto">
                     <div class="log-in-box">
                         <div class="log-in-title">
-                            <h3>Welcome To ECOM-EmpoTechBD</h3>
+                            <h3>Welcome To EMPO BD</h3>
                             <h4>Log In To Your Account</h4>
                         </div>
 
@@ -45,10 +45,8 @@
 
                         <form method="POST" action="{{ route('login') }}">
                             @csrf
-
                             <div class="input-box">
                                 <div class="row g-4">
-
                                     <!-- Email -->
                                     <div class="col-12">
                                         <div class="form-floating theme-form-floating log-in-form">
@@ -60,7 +58,6 @@
                                             @enderror
                                         </div>
                                     </div>
-
                                     <!-- Password -->
                                     <div class="col-12">
                                         <div class="form-floating theme-form-floating log-in-form">
@@ -72,7 +69,6 @@
                                             @enderror
                                         </div>
                                     </div>
-
                                     <!-- Submit -->
                                     <div class="col-12">
                                         <button class="btn btn-animation w-100 justify-content-center" type="submit">

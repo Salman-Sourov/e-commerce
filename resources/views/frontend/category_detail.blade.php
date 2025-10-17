@@ -1,4 +1,4 @@
-<title>{{ $category_name->name }} - ECOM EmpoTech</title>
+<title>{{ $category_name->name }} - EMPO BD</title>
 @extends('frontend.frontend_dashboard')
 @section('main')
     <section class="breadscrumb-section pt-0">
@@ -125,7 +125,7 @@
                     <div
                         class="row g-sm-4 g-3 row-cols-xxl-5 row-cols-xl-4 row-cols-lg-2 row-cols-md-3 row-cols-2 product-list-section">
                         @forelse ($category_product->totalProducts as $product)
-                            @if ($category_product->parent_id != null && $product->products)
+                            {{-- @if ($category_product->parent_id != null && $product->products) --}}
                                 <div>
                                     <div class="product-box-3 h-100 wow fadeInUp">
                                         <div class="product-header">
@@ -173,7 +173,7 @@
                                         </div>
                                     </div>
                                 </div>
-                            @endif
+                            {{-- @endif --}}
                         @empty
                             <p>No products available</p>
                         @endforelse

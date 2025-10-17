@@ -20,25 +20,31 @@
                                 aria-label="Slide 2"></button>
                             <button type="button" data-bs-target="#bannerCarousel" data-bs-slide-to="2"
                                 aria-label="Slide 3"></button>
+                            <button type="button" data-bs-target="#bannerCarousel" data-bs-slide-to="3"
+                                aria-label="Slide 4"></button>
                         </div>
 
                         <div class="carousel-inner">
                             <div class="carousel-item active">
-                                <img src="{{ asset('frontend/assets/images/banner/empotech_bd_banner_1.jpg') }}"
+                                <img src="{{ asset('frontend/assets/images/banner/empobd_banner_1.png') }}"
                                     class="d-block w-100 bg-img blur-up lazyload fixed-size" alt="Banner 1">
                             </div>
                             <div class="carousel-item">
-                                <img src="{{ asset('frontend') }}/assets/images/banner/empotech_bd_banner_1.2.jpeg"
+                                <img src="{{ asset('frontend') }}/assets/images/banner/empobd_banner_2.png"
                                     class="d-block w-100 bg-img blur-up lazyload fixed-size" alt="Banner 2">
                             </div>
                             <div class="carousel-item">
-                                <img src="{{ asset('frontend') }}/assets/images/banner/empotech_bd_banner_1.1.jpg"
+                                <img src="{{ asset('frontend') }}/assets/images/banner/empobd_banner_3.png"
                                     class="d-block w-100 bg-img blur-up lazyload fixed-size" alt="Banner 3">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="{{ asset('frontend') }}/assets/images/banner/empobd_banner_4.png"
+                                    class="d-block w-100 bg-img blur-up lazyload fixed-size" alt="Banner 4">
                             </div>
                         </div>
 
                         <!-- Text Overlay (remains fixed) -->
-                        <div
+                        {{-- <div
                             class="home-detail p-center-left w-75 position-absolute top-50 start-0 translate-middle-y ps-4">
                             <div>
                                 <h6>Exclusive offer</h6>
@@ -50,20 +56,20 @@
                                     intake of sugary drinks.
                                 </p>
                             </div>
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
 
                 <div class="col-xl-3 col-lg-4 d-lg-inline-block d-none ratio_156">
                     <div class="home-contain h-100">
-                        <img src="{{ asset('frontend') }}/assets/images/banner/empotech_bd_banner_3.jpg"
+                        <img src="{{ asset('frontend') }}/assets/images/banner/empobd_ad.jpg"
                             class="bg-img blur-up lazyload" alt="">
                         <div class="home-detail p-top-left home-p-sm w-75">
                             <div>
-                                <h2 class="mt-0 text-danger">45% <span class="discount text-title">OFF</span>
-                                </h2>
-                                <h3 class="theme-color">Real Refresement</h3>
-                                <h5 class="text-content">Only this week, Don't miss..</h5>
+                                {{-- <h2 class="mt-0 text-danger">45% <span class="discount text-title">OFF</span>
+                                </h2> --}}
+                                {{-- <h3 class="theme-color">Real Refresement</h3>
+                                <h5 class="text-content">Only this week, Don't miss..</h5> --}}
                                 {{-- <a href="shop-left-sidebar.html" class="shop-button">Shop Now <i
                                         class="fa-solid fa-right-long ms-2"></i></a> --}}
                             </div>
@@ -145,11 +151,11 @@
                 <div class="col-12">
                     <div class="banner-contain">
                         <div class="banner-contain hover-effect">
-                            <img src="{{ asset('frontend') }}/assets/images/banner/empotech_bd_banner_4.jpg"
+                            <img src="{{ asset('frontend') }}/assets/images/banner/empobd_ad_land_1.jpg"
                                 class="bg-img blur-up lazyload" alt="">
                             <div class="banner-details p-center p-sm-4 p-3 text-white text-center">
                                 <div>
-                                    <h3 class="lh-base fw-bold text-light">Look Good, Feel Good – Shop Here!</h3>
+                                    <h3 class="lh-base fw-bold text-dark">Look Good, Feel Good – Shop Here!</h3>
                                     <h6 class="coupon-code">Your stisfaction is our priority</h6>
                                 </div>
                             </div>
@@ -332,10 +338,10 @@
                     <div class="position-sticky top-0">
                         <div class="ratio_209 rounded wow fadeIn">
                             <div class="banner-contain-2 rounded hover-effect">
-                                <img src="{{ asset('frontend') }}/assets/images/banner/right_banner.jpg"
+                                <img src="{{ asset('frontend') }}/assets/images/banner/empobd_ad_below.png"
                                     class="bg-img blur-up lazyload" alt="">
                                 <div class="banner-detail p-top-left">
-                                    <div>
+                                    {{-- <div>
                                         <h6 class="text-uppercase theme-color fw-500">Leather Item</h6>
                                         <h3 class="text-uppercase">
                                             special <span class="brand-name">brand</span>
@@ -348,14 +354,14 @@
                                             <h2 class="mt-2">50%</h2>
                                             <h3 class="text-uppercase">off</h3>
                                         </div>
-                                        {{-- 
+                                        
                                         <div>
                                             <button onclick="location.href = 'shop-left-sidebar.html';"
                                                 class="btn text-white btn-md mt-xxl-4 mt-2 home-button mend-auto theme-bg-color">Shop
                                                 Now<i class="fa-solid fa-right-long icon ms-2"></i>
                                             </button>
-                                        </div> --}}
-                                    </div>
+                                        </div>
+                                    </div> --}}
                                 </div>
                             </div>
                         </div>

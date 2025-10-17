@@ -1,4 +1,4 @@
-<title>Checkout - ECOM EmpoTech</title>
+<title>Checkout - EMPO BD</title>
 @extends('frontend.frontend_dashboard')
 @section('main')
     <!-- Cart Section Start -->

@@ -7,35 +7,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     {{-- ✅ SEO Meta --}}
-    <title>@yield('title', 'ECOM EmpoTech | Smart E-Commerce Platform')</title>
-    <meta name="description"
-        content="@yield('meta_description', 'Buy products online at the best prices from EmpoTech BD. Fast delivery, secure payment & trusted sellers.')">
-    <meta name="keywords"
-        content="@yield('meta_keywords', 'ecommerce, bangladesh, empotech, online shop, tech store, empotechbd')">
+    <title>@yield('title', 'EMPO BD | Smart E-Commerce Platform')</title>
+    <meta name="description" content="@yield('meta_description', 'Buy products online at the best prices from EmpoTech BD. Fast delivery, secure payment & trusted sellers.')">
+    <meta name="keywords" content="@yield('meta_keywords', 'ecommerce, bangladesh, empotech, online shop, tech store, empotechbd')">
     <meta name="author" content="EmpoTech BD">
 
     {{-- ✅ Open Graph (for Facebook / WhatsApp) --}}
     <meta property="og:title" content="@yield('og_title', 'ECOM EmpoTech BD')" />
-    <meta property="og:description"
-        content="@yield('og_description', 'EmpoTech BD – Trusted Online Shopping Platform in Bangladesh')" />
-    <meta property="og:image"
-        content="@yield('og_image', asset('frontend/assets/images/favicon/empotech.png'))" />
+    <meta property="og:description" content="@yield('og_description', 'EmpoTech BD – Trusted Online Shopping Platform in Bangladesh')" />
+    <meta property="og:image" content="@yield('og_image', asset('frontend/assets/images/favicon/empotech.png'))" />
     <meta property="og:url" content="https://ecom.empotechbd.com/" />
     <meta property="og:type" content="website" />
 
     {{-- ✅ Twitter Card --}}
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="@yield('twitter_title', 'ECOM EmpoTech BD')">
-    <meta name="twitter:description"
-        content="@yield('twitter_description', 'EmpoTech BD – Trusted Online Shopping Platform in Bangladesh')">
-    <meta name="twitter:image"
-        content="@yield('twitter_image', asset('frontend/assets/images/favicon/empotech.png'))">
+    <meta name="twitter:description" content="@yield('twitter_description', 'EmpoTech BD – Trusted Online Shopping Platform in Bangladesh')">
+    <meta name="twitter:image" content="@yield('twitter_image', asset('frontend/assets/images/favicon/empotech.png'))">
 
     {{-- ✅ Canonical URL --}}
     <link rel="canonical" href="https://ecom.empotechbd.com/" />
 
     {{-- ✅ Favicon --}}
-    <link rel="icon" href="{{ asset('frontend/assets/images/favicon/empotech.png') }}" type="image/x-icon">
+    <link rel="icon" href="{{ asset('frontend/assets/images/favicon/empobd.png') }}" type="image/x-icon">
 
     {{-- ✅ Google Fonts --}}
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -57,7 +51,7 @@
     {{-- ✅ Custom Loader Color --}}
     <style>
         :root {
-            --loader-color: #f3b201; /* Change this to your brand color */
+            --loader-color: #f3b201;
         }
 
         .fullpage-loader span {
@@ -69,6 +63,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     {{-- ✅ Google Tag Manager --}}
+    <!-- Google Tag Manager -->
     <script>
         (function(w, d, s, l, i) {
             w[l] = w[l] || [];
@@ -82,10 +77,11 @@
             j.async = true;
             j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
             f.parentNode.insertBefore(j, f);
-        })(window, document, 'script', 'dataLayer', 'GTM-XXXXXXX'); // Replace with your GTM ID
+        })(window, document, 'script', 'dataLayer', 'GTM-55XC7LQK');
     </script>
+    <!-- End Google Tag Manager -->
 
-    {{-- ✅ Google Analytics 4 (optional if not inside GTM) --}}
+    {{-- ✅ Google Analytics 4 (optional) --}}
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXX"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -94,7 +90,7 @@
             dataLayer.push(arguments);
         }
         gtag('js', new Date());
-        gtag('config', 'G-XXXXXXX'); // Replace with your GA4 Measurement ID
+        gtag('config', 'G-XXXXXXX'); // Replace with your GA4 ID
     </script>
 
     {{-- ✅ Meta Pixel (Facebook / Instagram Ads) --}}
@@ -127,11 +123,13 @@
 </head>
 
 <body class="bg-effect">
-    {{-- ✅ GTM noscript --}}
+    {{-- ✅ Google Tag Manager (noscript) --}}
+    <!-- Google Tag Manager (noscript) -->
     <noscript>
-        <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX" height="0" width="0"
+        <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-55XC7LQK" height="0" width="0"
             style="display:none;visibility:hidden"></iframe>
     </noscript>
+    <!-- End Google Tag Manager (noscript) -->
 
     <!-- Loader Start -->
     <div class="fullpage-loader">
@@ -171,6 +169,69 @@
     <script src="{{ asset('frontend/assets/js/custom-wow.js') }}"></script>
     <script src="{{ asset('frontend/assets/js/script.js') }}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
+    <script>
+        function closeCart() {
+            var id = event.currentTarget.getAttribute('data-id');
+            var url = "{{ route('cart.remove', ':id') }}".replace(':id', id);
+            // alert(id);
+
+            $.ajax({
+                type: 'GET',
+                url: url,
+                contentType: false,
+                processData: false,
+
+                success: function(data) {
+                    console.log(data);
+                    $('#cart-quantity').text(data.update_cart_quantity);
+                    $('#mobile-cart-count').text(data.update_cart_quantity);
+                    $('#total_price').text(data.total_price);
+                    $('#sub_total').text(data.total_price);
+                    $('#total_order_amount').text(data.total_price);
+                }
+            });
+        }
+    </script>
+
+    <script>
+        function toggleTransactionField() {
+            var paymentOption = document.getElementById('payment-option').value;
+            var transactionField = document.getElementById('transaction-field');
+            if (paymentOption === 'full-amount') {
+                transactionField.style.display = 'block';
+            } else {
+                transactionField.style.display = 'none';
+            }
+        }
+    </script>
+
+    <script>
+        $(document).ready(function() {
+            // Trigger update when the area selection changes
+            $('#area').change(function() {
+                // Get the selected value from the dropdown
+                var areaValue = $(this).val();
+                // Default total price (replace with actual value)
+                var totalPrice = parseInt($('#sub_total').text()); // Replace with your dynamic total price
+
+
+                var shippingAmount = 0;
+                if (areaValue) {
+                    shippingAmount = parseInt(areaValue);
+                }
+
+
+                // Update the shipping amount displayed
+                $('#shipping_amount').text(shippingAmount);
+
+                // Calculate and update the total order amount (including shipping)
+                var totalOrderAmount = totalPrice + shippingAmount;
+
+                $('#total_order_amount').text(totalOrderAmount);
+            });
+        });
+    </script>
 
     @yield('script')
 </body>

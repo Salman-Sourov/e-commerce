@@ -12,7 +12,7 @@
                                 </div>
 
                                 <div class="service-detail">
-                                    <h5>Every Fresh Products</h5>
+                                    <h5>Jutawala – Walk Your Story</h5>
                                 </div>
                             </div>
 
@@ -23,7 +23,7 @@
                                 </div>
 
                                 <div class="service-detail">
-                                    <h5>Free Delivery For Limited Products</h5>
+                                    <h5>MadeForU – Crafted with Care, Made for You</h5>
                                 </div>
                             </div>
 
@@ -34,7 +34,7 @@
                                 </div>
 
                                 <div class="service-detail">
-                                    <h5>Daily Mega Discounts</h5>
+                                    <h5>WearOne – Be Simple, Be Stylish</h5>
                                 </div>
                             </div>
 
@@ -45,7 +45,7 @@
                                 </div>
 
                                 <div class="service-detail">
-                                    <h5>Best Price On The Market</h5>
+                                    <h5>TechHaat – Tech That Matters</h5>
                                 </div>
                             </div>
                         </div>
@@ -69,7 +69,7 @@
                             </div>
 
                             <div class="footer-logo-contain">
-                                <p>Welcome to ECOM EmpoTechBD!
+                                <p>Welcome to EMPO BD!
                                     Your go-to for quality products, great prices, and exceptional service.
                                     We prioritize convenience, sustainability, and a seamless shopping experience. Shop
                                     confidently—your satisfaction is our mission!</p>
@@ -82,7 +82,7 @@
                                     </li>
                                     <li>
                                         <i data-feather="mail"></i>
-                                        <a href="javascript:void(0)">support@empotechbd.com </a>
+                                        <a href="javascript:void(0)">empo@empotechbd.com </a>
                                     </li>
                                 </ul>
                             </div>
@@ -190,7 +190,7 @@
                                         <i data-feather="mail"></i>
                                         <div class="contact-number">
                                             <h6 class="text-content">Email Address :</h6>
-                                            <h5>support@empotechbd.com</h5>
+                                            <h5>empo@empotechbd.com</h5>
                                         </div>
                                     </div>
                                 </li>
@@ -233,17 +233,17 @@
                     <h6 class="text-content">Stay connected :</h6>
                     <ul>
                         <li>
-                            <a href="https://www.facebook.com/empotechbdofficial" target="_blank">
+                            <a href="https://www.facebook.com/empobd/" target="_blank">
                                 <i class="fa-brands fa-facebook-f"></i>
                             </a>
                         </li>
-                        <li>
+                        {{-- <li>
                             <a href="https://empotechbd.com/" target="_blank">
                                 <i class="fa-brands fa-linkedin"></i>
                             </a>
-                        </li>
+                        </li> --}}
                         <li>
-                            <a href="#" target="_blank">
+                            <a href="https://www.instagram.com/empobd077" target="_blank">
                                 <i class="fa-brands fa-instagram"></i>
                             </a>
                         </li>

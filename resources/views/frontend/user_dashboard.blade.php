@@ -1,4 +1,4 @@
-    <title>User Dashboard - ECOM EmpoTech</title>
+    <title>User Dashboard - EMPO BD</title>
     @extends('frontend.frontend_dashboard')
     @section('main')
         <!-- Breadcrumb Section Start -->
@@ -38,7 +38,7 @@
                             </div>
                             <div class="profile-box">
                                 <div class="cover-image">
-                                    <img src="{{ asset('frontend/assets/images/banner/empotech_bd_banner_1.1.jpg') }}"
+                                    <img src="{{ asset('frontend/assets/images/banner/empobd_banner_4.png') }}"
                                         class="img-fluid blur-up lazyload" alt="">
                                 </div>
 
@@ -94,7 +94,7 @@
                                                     @csrf
 
                                                     <!-- Phone Number -->
-                                                    <div class="form-floating theme-form-floating mb-3">
+                                                    <div class="form-floating theme-form-floating mb-4">
                                                         <input type="text" name="phone" class="form-control"
                                                             id="phone" placeholder="Phone Number"
                                                             value="{{ Auth::check() ? Auth::user()->phone : '' }}">
@@ -107,7 +107,7 @@
                                                     </div>
 
                                                     <!-- Email -->
-                                                    <div class="form-floating theme-form-floating mb-3">
+                                                    <div class="form-floating theme-form-floating mb-4">
                                                         <input type="email" name="email" class="form-control"
                                                             id="email" placeholder="Email Address"
                                                             value="{{ Auth::check() ? Auth::user()->email : '' }}">
@@ -120,7 +120,7 @@
                                                     </div>
 
                                                     <!-- Address -->
-                                                    <div class="form-floating theme-form-floating mb-3">
+                                                    <div class="form-floating theme-form-floating mb-4">
                                                         <input type="text" name="address" class="form-control"
                                                             id="address" placeholder="Address"
                                                             value="{{ Auth::check() ? Auth::user()->address : '' }}">
@@ -133,7 +133,7 @@
                                                     </div>
 
                                                     <!-- New Password -->
-                                                    <div class="form-floating theme-form-floating mb-3">
+                                                    <div class="form-floating theme-form-floating mb-4">
                                                         <input type="password" name="password" class="form-control"
                                                             id="password" placeholder="New Password">
                                                         <label for="password">New Password (নতুন পাসওয়ার্ড)</label>
@@ -145,7 +145,7 @@
                                                     </div>
 
                                                     <!-- Confirm Password -->
-                                                    <div class="form-floating theme-form-floating mb-3">
+                                                    <div class="form-floating theme-form-floating mb-4">
                                                         <input type="password" name="password_confirmation"
                                                             class="form-control" id="password_confirmation"
                                                             placeholder="Confirm Password">

@@ -15,7 +15,7 @@
                             <div class="notification-slider">
                                 <div>
                                     <div class="timer-notification">
-                                        <h6><strong class="me-1">Welcome to ECOM EmpoTech. </strong>Wrap new
+                                        <h6><strong class="me-1">Welcome to EMPO BD. </strong>Wrap new
                                             offers/gift.
 
                                         </h6>
@@ -413,7 +413,7 @@
                                                 @endphp
 
                                                 <ul class="dropdown-menu">
-                                                    @forelse ($products->take(5) as $product)
+                                                    @forelse ($products->shuffle()->take(6) as $product)
                                                         <li>
                                                             @if (App::getLocale() == 'en')
                                                                 <a class="dropdown-item"
@@ -432,7 +432,6 @@
                                                         <li class="dropdown-item text-muted">No Products available</li>
                                                     @endforelse
                                                 </ul>
-
                                             </li>
 
                                             <li class="nav-item dropdown">

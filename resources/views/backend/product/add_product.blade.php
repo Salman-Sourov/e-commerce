@@ -7,15 +7,15 @@
                 <div class="row">
                     <div class="card">
                         <div class="card-body">
-                            <h6 class="card-title">Add Product</h6>
-
+                            <h4 class="card-title">Add Product</h4>
+                            <h6 class="text-danger mb-2">* Marks all field are mendatory</h6>
                             <form method="post" action="{{ route('product.store') }}" id="myForm"
                                 enctype="multipart/form-data">
                                 @csrf
                                 <div class="row">
                                     <div class="col-sm-6">
                                         <div class="form-group mb-3">
-                                            <label class="form-label">Product Name *</label>
+                                            <label class="form-label text-danger">Product Name *</label>
                                             <input type="text" name="product_name" class="form-control"
                                                 value="{{ old('product_name') }}">
                                             @error('product_name')
@@ -26,7 +26,8 @@
 
                                     <div class="col-sm-6">
                                         <div class="form-group mb-3">
-                                            <label for="banglaInputText" class="form-label">Name in Bangla *</label>
+                                            <label for="banglaInputText" class="form-label text-danger">Name in Bangla
+                                                *</label>
                                             <input type="text" name="product_name_bangla" class="form-control"
                                                 id="banglaInputText" value="{{ old('product_name_bangla') }}">
                                             @error('product_name_bangla')
@@ -35,9 +36,9 @@
                                         </div>
                                     </div>
 
-                                    <div class="col-sm-3">
+                                    <div class="col-sm-2">
                                         <div class="form-group mb-3">
-                                            <label class="form-label">Product Quantity *</label>
+                                            <label class="form-label text-danger">Product Quantity *</label>
                                             <input type="text" name="quantity" class="form-control"
                                                 value="{{ old('quantity') }}">
                                             @error('quantity')
@@ -46,9 +47,9 @@
                                         </div>
                                     </div>
 
-                                    <div class="col-sm-3">
+                                    <div class="col-sm-2">
                                         <div class="form-group mb-3">
-                                            <label for="brand" class="form-label">Brand *</label>
+                                            <label for="brand" class="form-label text-danger">Brand *</label>
                                             <select name="brand_id" class="form-control" id="brand">
                                                 <option value="">Select a Brand</option>
                                                 <!-- Options will be dynamically populated here -->
@@ -66,9 +67,9 @@
                                         </div>
                                     </div>
 
-                                    <div class="col-sm-3">
+                                    <div class="col-sm-2">
                                         <div class="form-group mb-3">
-                                            <label for="category" class="form-label">Category *</label>
+                                            <label for="category" class="form-label text-danger">Category *</label>
                                             <select name="category_id" class="form-control" id="category_id"
                                                 onChange="categoryChanged()">
                                                 <option value="">Select a Category</option>
@@ -86,7 +87,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="col-sm-3">
+                                    <div class="col-sm-2">
                                         <div class="form-group mb-3">
                                             <label for="sub_category" class="form-label">Sub Category</label>
                                             <select name="sub_category_id" class="form-control" id="sub_category">
@@ -98,7 +99,18 @@
                                         </div>
                                     </div>
 
-                                    <div class="col-sm-3">
+                                    <div class="col-sm-2">
+                                        <div class="form-group mb-3">
+                                            <label class="form-label text-danger">Sale Price (Sell/New Price) *</label>
+                                            <input type="text" name="sale_price" class="form-control"
+                                                value="{{ old('sale_price') }}">
+                                            @error('sale_price')
+                                                <span class="text-danger">{{ $message }}</span>
+                                            @enderror
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-2">
                                         <div class="form-group mb-3">
                                             <label class="form-label">Price (Old Price)</label>
                                             <input type="text" name="price" class="form-control"
@@ -109,18 +121,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="col-sm-3">
-                                        <div class="form-group mb-3">
-                                            <label class="form-label">Sale Price (Sell/New Price) *</label>
-                                            <input type="text" name="sale_price" class="form-control"
-                                                value="{{ old('sale_price') }}">
-                                            @error('sale_price')
-                                                <span class="text-danger">{{ $message }}</span>
-                                            @enderror
-                                        </div>
-                                    </div>
-
-                                    <div class="col-sm-3">
+                                    {{-- <div class="col-sm-3">
                                         <div class="form-group mb-3">
                                             <label class="form-label">Start Date</label>
                                             <input type="date" name="start_date" class="form-control"
@@ -140,7 +141,7 @@
                                                 <span class="text-danger">{{ $message }}</span>
                                             @enderror
                                         </div>
-                                    </div>
+                                    </div> --}}
 
                                     {{-- <div class="col-sm-3">
                                         <div class="form-group mb-3">
@@ -186,29 +187,31 @@
                                         </div>
                                     </div> --}}
 
-                                    <div class="col-sm-12">
-                                        <div class="mb-3">
-                                            <label class="form-label">Short Content</label>
-                                            <textarea name="short_content" class="form-control" id="exampleFormControlTextarea1" rows="3">{{ old('short_content') }}</textarea>
-                                            @error('short_content')
-                                                <span class="text-danger">{{ $message }}</span>
-                                            @enderror
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <div class="mb-3">
+                                                <label class="form-label text-danger">Short Content *</label>
+                                                <textarea name="short_content" class="form-control" id="exampleFormControlTextarea1" rows="10">{{ old('short_content') }}</textarea>
+                                                @error('short_content')
+                                                    <span class="text-danger">{{ $message }}</span>
+                                                @enderror
+                                            </div>
                                         </div>
-                                    </div>
 
-                                    <div class="col-sm-12">
-                                        <div class="mb-3">
-                                            <label class="form-label">Long Description *</label>
-                                            <textarea name="description" class="form-control" rows="10">{{ old('description') }}</textarea>
-                                            @error('description')
-                                                <span class="text-danger">{{ $message }}</span>
-                                            @enderror
+                                        <div class="col-sm-6">
+                                            <div class="mb-3">
+                                                <label class="form-label">Long Description</label>
+                                                <textarea name="description" class="form-control" rows="10">{{ old('description') }}</textarea>
+                                                @error('description')
+                                                    <span class="text-danger">{{ $message }}</span>
+                                                @enderror
+                                            </div>
                                         </div>
                                     </div>
 
                                     <div class="col-sm-6">
                                         <div class="form-group mb-3">
-                                            <label class="form-label">Main Thumbnail *</label>
+                                            <label class="form-label text-danger">Main Thumbnail *</label>
                                             <input type="file" name="thumbnail" class="form-control"
                                                 onChange="mainThamUrl(this)">
                                             <img src="" id="mainThmb">

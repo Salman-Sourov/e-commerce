@@ -1,19 +1,21 @@
 @extends('admin.admin_dashboard')
 @section('admin')
     <div class="page-content">
-        
+
         <div class="d-flex justify-content-start mb-3">
             <!-- All Products Button -->
-            <a href="{{ route('product.index') }}" class="btn btn-primary btn-sm d-flex align-items-center me-3" title="View All Products">
+            <a href="{{ route('product.index') }}" class="btn btn-primary btn-sm d-flex align-items-center me-3"
+                title="View All Products">
                 <i data-feather="box" class="me-2" style="width: 18px; height: 18px;"></i> All Products
             </a>
-            
+
             <!-- View Product Button -->
-            <a href="{{ route('product.details', $product->id) }}" class="btn btn-success btn-sm d-flex align-items-center" title="View Product on Website" target="_blank">
+            <a href="{{ route('product.details', $product->id) }}" class="btn btn-success btn-sm d-flex align-items-center"
+                title="View Product on Website" target="_blank">
                 <i data-feather="eye" class="me-2" style="width: 18px; height: 18px;"></i> View Product on Website
             </a>
-        </div>        
-                
+        </div>
+
 
         <div class="row profile-body">
             <!-- middle wrapper start -->
@@ -53,7 +55,18 @@
                                         </div>
                                     </div>
 
-                                    <div class="col-sm-4">
+                                    <div class="col-sm-2">
+                                        <div class="form-group mb-3">
+                                            <label class="form-label">Product Quantity *</label>
+                                            <input type="text" name="quantity" class="form-control" placeholder="N/A"
+                                                value="{{ old('quantity', $product->quantity) }}">
+                                            @error('quantity')
+                                                <span class="text-danger">{{ $message }}</span>
+                                            @enderror
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-2">
                                         <div class="form-group mb-3">
                                             <label for="brand" class="form-label">Brand *</label>
                                             <select name="brand_id" class="form-control" id="brand">
@@ -71,7 +84,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="col-sm-3">
+                                    <div class="col-sm-2">
                                         <div class="form-group mb-3">
                                             <label for="category" class="form-label">Category *</label>
                                             <input type="hidden" id="sub_category_id"
@@ -102,7 +115,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="col-sm-3">
+                                    <div class="col-sm-2">
                                         <div class="form-group mb-3">
                                             <label for="sub_category" class="form-label">Sub Category</label>
                                             <select name="sub_category_id" class="form-control" id="sub_category">
@@ -112,18 +125,7 @@
 
                                     <div class="col-sm-2">
                                         <div class="form-group mb-3">
-                                            <label class="form-label">Product Quantity *</label>
-                                            <input type="text" name="quantity" class="form-control" placeholder="N/A"
-                                                value="{{ old('quantity', $product->quantity) }}">
-                                            @error('quantity')
-                                                <span class="text-danger">{{ $message }}</span>
-                                            @enderror
-                                        </div>
-                                    </div>
-
-                                    <div class="col-sm-3">
-                                        <div class="form-group mb-3">
-                                            <label class="form-label">Price *</label>
+                                            <label class="form-label">Price (Old Price)</label>
                                             <input type="text" name="price" class="form-control" placeholder="N/A"
                                                 value="{{ old('price', $product->price) }}">
                                             @error('price')
@@ -132,9 +134,9 @@
                                         </div>
                                     </div>
 
-                                    <div class="col-sm-3">
+                                    <div class="col-sm-2">
                                         <div class="form-group mb-3">
-                                            <label class="form-label">Sale Price*</label>
+                                            <label class="form-label">Sale Price (Sell/New Price) *</label>
                                             <input type="text" name="sale_price" class="form-control" placeholder="N/A"
                                                 value="{{ old('sale_price', $product->sale_price) }}">
                                             @error('sale_price')
@@ -149,7 +151,7 @@
                                             data-inputmask-inputformat="yyyy/mm/dd" inputmode="numeric" value="{{ old('start_date', $product->start_date) }}">
                                     </div> --}}
 
-                                    <div class="col-sm-3">
+                                    {{-- <div class="col-sm-3">
                                         <div class="form-group mb-3">
                                             <label class="form-label">Start Date</label>
                                             <input type="date" name="start_date" class="form-control"
@@ -163,7 +165,7 @@
                                             <input type="date" name="end_date" class="form-control"
                                                 value="{{ old('end_date', $product->end_date) }}">
                                         </div>
-                                    </div>
+                                    </div> --}}
 
                                     {{-- <div class="col-sm-3">
                                         <div class="form-group mb-3">
@@ -197,28 +199,30 @@
                                         </div>
                                     </div> --}}
 
-                                    <div class="col-sm-12">
-                                        <div class="mb-3">
-                                            <label class="form-label">Short Content*</label>
-                                            <textarea name="short_content" class="form-control" id="exampleFormControlTextarea1" rows="3"
-                                                placeholder="N/A">{{ old('short_content', $product->content) }}</textarea>
-                                            @error('short_content')
-                                                <span class="text-danger">{{ $message }}</span>
-                                            @enderror
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <div class="mb-3">
+                                                <label class="form-label">Short Content*</label>
+                                                <textarea name="short_content" class="form-control" id="exampleFormControlTextarea1" rows="10"
+                                                    placeholder="N/A">{{ old('short_content', $product->content) }}</textarea>
+                                                @error('short_content')
+                                                    <span class="text-danger">{{ $message }}</span>
+                                                @enderror
+                                            </div>
+                                        </div>
+
+                                        <div class="col-sm-6">
+                                            <div class="mb-3">
+                                                <label class="form-label">Long Description</label>
+                                                <textarea name="description" class="form-control" rows="10">{{ old('description', $product->description) }}</textarea>
+                                                @error('description')
+                                                    <span class="text-danger">{{ $message }}</span>
+                                                @enderror
+                                            </div>
                                         </div>
                                     </div>
 
-                                    <div class="col-sm-12">
-                                        <div class="mb-3">
-                                            <label class="form-label">Long Description*</label>
-                                            <textarea name="description" class="form-control" rows="10">{{ old('description', $product->description) }}</textarea>
-                                            @error('description')
-                                                <span class="text-danger">{{ $message }}</span>
-                                            @enderror
-                                        </div>
-                                    </div>
-
-                                    <div class="col-sm-3">
+                                    <div class="col-sm-6">
                                         <div class="form-group">
                                             <label class="form-label">Main Thumbnail*</label>
                                             <!-- File input to upload a new thumbnail -->
@@ -304,50 +308,59 @@
                                     <div class="card">
                                         <div class="card-body">
                                             <h6 class="card-title">Edit Multi Image</h6>
-                
-                                            <form method="post" action="" id="myForm" enctype="multipart/form-data">
+
+                                            <form method="post" action="" id="myForm"
+                                                enctype="multipart/form-data">
                                                 @csrf
-                
+
                                                 <div class="row">
                                                     @foreach ($product->multi_images as $multi_image => $img)
                                                         <!-- Each image is in a column and occupies 4 columns out of 12 -->
                                                         <div class="col-sm-1 mb-3">
                                                             <div class="card">
-                                                                <img src="{{ asset($img->image_detail->image) }}" alt="image" class="card-img-top" style="height: 190px; object-fit: cover;">
+                                                                <img src="{{ asset($img->image_detail->image) }}"
+                                                                    alt="image" class="card-img-top"
+                                                                    style="height: 190px; object-fit: cover;">
                                                                 <div class="card-body text-center">
-                                                                    <a href="{{ route('deleteMultiImg.delete', $img->image_detail->id) }}" class="btn btn-danger btn-sm" id="delete">Delete</a>
+                                                                    <a href="{{ route('deleteMultiImg.delete', $img->image_detail->id) }}"
+                                                                        class="btn btn-danger btn-sm"
+                                                                        id="delete">Delete</a>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                     @endforeach
                                                 </div>
-                
-                                                
+
+
                                             </form>
-                
+
                                             <!-- Upload New Images -->
-                                            <form method="post" action="{{ route('uploadMultiImg.add') }}" id="myForm" enctype="multipart/form-data">
+                                            <form method="post" action="{{ route('uploadMultiImg.add') }}"
+                                                id="myForm" enctype="multipart/form-data">
                                                 @csrf
                                                 <input type="hidden" name="imageid" value="">
-                                                <input type="hidden" value="{{ $product->id }}" name="upload_product_id">
+                                                <input type="hidden" value="{{ $product->id }}"
+                                                    name="upload_product_id">
                                                 <table class="table table-striped">
                                                     <tbody>
                                                         <tr>
                                                             <td>
-                                                                <input type="file" class="form-control" name="multi_img">
+                                                                <input type="file" class="form-control"
+                                                                    name="multi_img">
                                                                 @error('multi_img')
                                                                     <span class="text-danger">{{ $message }}</span>
                                                                 @enderror
                                                             </td>
-                
+
                                                             <td>
-                                                                <input type="submit" class="btn btn-info px-4" value="Add Image">
+                                                                <input type="submit" class="btn btn-info px-4"
+                                                                    value="Add Image">
                                                             </td>
                                                         </tr>
                                                     </tbody>
                                                 </table>
                                             </form>
-                
+
                                         </div>
                                     </div>
                                 </div>
@@ -355,7 +368,7 @@
                         </div>
                     </div>
                 </div>
-                
+
             </div>
         </div>
 

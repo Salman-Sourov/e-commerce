@@ -42,7 +42,7 @@ class indexController extends Controller
             ->first();
 
         $category_name = Product_category::findOrFail($id);
-        //dd($category_product);
+        // dd($category_product);
         return view('frontend.category_detail', compact('categories', 'brands', 'products', 'category_name', 'category_product', 'carts'));
     }
 
