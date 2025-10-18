@@ -218,9 +218,10 @@
 
                                                 <div class="button-group">
                                                     <a href="" class=""></a>
-                                                    <a href="{{ route('checkout') }}"
-                                                        class="btn btn-sm cart-button theme-bg-color
-                                                    text-white">Checkout</a>
+                                                    @if (count($carts) > 0)
+                                                        <a href="{{ route('checkout') }}"
+                                                            class="btn btn-sm cart-button theme-bg-color text-white">Checkout</a>
+                                                    @endif
                                                 </div>
                                             </div>
                                         </div>

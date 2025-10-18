@@ -76,7 +76,7 @@
                                 <ul class="address">
                                     <li>
                                         <i data-feather="home"></i>
-                                        <a href="javascript:void(0)">House 36, Road-5, Block B, Banasree, <br> Rampura,
+                                        <a href="javascript:void(0)">Road-10, Block J, Banasree, <br>
                                             Dhaka, Bangladesh,1219
                                         </a>
                                     </li>
