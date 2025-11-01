@@ -89,7 +89,6 @@ class ProductStockController extends Controller
 
             return redirect()->back()->with($notification);
         }
-
     }
 
     /**
@@ -195,74 +194,127 @@ class ProductStockController extends Controller
     }
 
 
+    // public function addAttributeWiseStock(Request $request)
+    // {
+
+    //     $request->validate([
+    //         'quantity' => 'required',
+    //     ]);
+
+    //     $attributeIds = json_decode($request->input('attribute_ids'), true);
+    //     $attributeIds = explode(',', $attributeIds);
+    //     //dd($attributeIds);
+    //     $quantity = $request->input('quantity');
+
+    //     // Perform the logic with the data
+    //     // dd($request);
+    //     $data = new Product_attribute_wise_stock();
+    //     $data->product_id = $request->product_id;
+    //     $data->stock = $request->quantity;
+    //     $total_attributeIds = count($attributeIds);
+
+    //     $attributeString = implode(',', $attributeIds);
+
+    //     // Check if the attribute combination already exists
+    //     $exist_attribute = Product_attribute_wise_stock::where('product_id', $request->product_id)->where('attribute_id', $attributeString)->first();
+    //     if ($exist_attribute) {
+    //         $update_exist_attribute = Product_attribute_wise_stock::where('id', $exist_attribute->id)->first();
+
+    //         $update_exist_attribute->stock = $request->quantity;
+    //         $update_exist_attribute->save();
+    //         return response()->json(['success' => true, 'message' => 'Product stock Updated successfully']);
+    //     }
+
+    //     if ($total_attributeIds != 0) {
+    //         $attributeString = '';
+    //         for ($i = 0; $i < $total_attributeIds; $i++) {
+    //             $attributeString .= $attributeIds[$i] . ',';
+    //         }
+    //         $data->attribute_id = rtrim($attributeString, ',');  // Remove trailing comma
+    //         $data->save();
+    //         return response()->json(['success' => true, 'message' => 'Product stock added successfully']);
+    //     } else {
+    //         return response()->json(['success' => true, 'message' => 'Error']);
+    //     }
+    // }
+
+
     public function addAttributeWiseStock(Request $request)
     {
-
         $request->validate([
-            'quantity' => 'required',
+            'quantity' => 'required|numeric|min:0',
         ]);
 
         $attributeIds = json_decode($request->input('attribute_ids'), true);
-        $attributeIds = explode(',', $attributeIds);
-        //dd($attributeIds);
+
+        // In case it's a string (like "1,2,3"), convert it properly
+        if (!is_array($attributeIds)) {
+            $attributeIds = explode(',', $attributeIds);
+        }
+
         $quantity = $request->input('quantity');
-
-        // Perform the logic with the data
-        // dd($request);
-        $data = new Product_attribute_wise_stock();
-        $data->product_id = $request->product_id;
-        $data->stock = $request->quantity;
-        $total_attributeIds = count($attributeIds);
-
         $attributeString = implode(',', $attributeIds);
 
         // Check if the attribute combination already exists
-        $exist_attribute = Product_attribute_wise_stock::where('product_id', $request->product_id)->where('attribute_id', $attributeString)->first();
-        if ($exist_attribute) {
-            $update_exist_attribute = Product_attribute_wise_stock::where('id', $exist_attribute->id)->first();
+        $existing = Product_attribute_wise_stock::where('product_id', $request->product_id)
+            ->where('attribute_id', $attributeString)
+            ->first();
 
-            $update_exist_attribute->stock = $request->quantity;
-            $update_exist_attribute->save();
-            return response()->json(['success' => true, 'message' => 'Product stock Updated successfully']);
+        if ($existing) {
+            $existing->stock = $quantity;
+            $existing->save();
+
+            return response()->json([
+                'success' => true,
+                'message' => 'Product stock updated successfully!',
+                'newStock' => [
+                    'attribute_ids' => $attributeString,
+                    'stock' => $existing->stock,
+                ],
+            ]);
         }
 
-        if ($total_attributeIds != 0) {
-            $attributeString = '';
-            for ($i = 0; $i < $total_attributeIds; $i++) {
-                $attributeString .= $attributeIds[$i] . ',';
-            }
-            $data->attribute_id = rtrim($attributeString, ',');  // Remove trailing comma
-            $data->save();
-            return response()->json(['success' => true, 'message' => 'Product stock added successfully']);
-        } else {
-            return response()->json(['success' => true, 'message' => 'Error']);
-        }
+        // Create new record
+        $data = new Product_attribute_wise_stock();
+        $data->product_id = $request->product_id;
+        $data->attribute_id = $attributeString;
+        $data->stock = $quantity;
+        $data->save();
+
+        return response()->json([
+            'success' => true,
+            'message' => 'Product stock added successfully!',
+            'newStock' => [
+                'attribute_ids' => $attributeString,
+                'stock' => $data->stock,
+            ],
+        ]);
     }
 
     public function deleteStock(string $id)
     {
-         //dd($id);
+        //dd($id);
         // Assuming the 'id' is the stock record ID, find and delete it
         $stock = Product_with_attribute::where('product_id', $id)->first();
         $attribute_stock = Product_attribute_wise_stock::where('product_id', $id)->get();
-        
+
         if ($stock || $attribute_stock->isNotEmpty()) {
             if ($stock) {
                 $stock->delete();
             }
-            
+
             foreach ($attribute_stock as $item) {
                 $item->delete();
             }
-        
+
             return response()->json(['success' => true, 'message' => 'Stock deleted successfully.']);
         } else {
             return response()->json(['success' => false, 'message' => 'Stock not found.']);
         }
-        
     }
 
-    public function stockOut(string $id){
+    public function stockOut(string $id)
+    {
         // dd('Helo');
         $data = Product::findOrFail($id);
 
@@ -272,7 +324,8 @@ class ProductStockController extends Controller
         return back()->with('success', 'Product stock Out');
     }
 
-    public function stockIn(string $id){
+    public function stockIn(string $id)
+    {
         // dd('Helo');
         $data = Product::findOrFail($id);
 

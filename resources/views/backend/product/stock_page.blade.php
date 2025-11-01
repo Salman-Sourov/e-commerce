@@ -27,7 +27,7 @@
                                                 <div class="card-body" style="border: 1px solid #6571FF;">
                                                     <div class="d-flex flex-wrap">
 
-                                                        @forelse($attributeSet->attributes as $attribute)
+                                                        @forelse($attributeSet->attributes->sortBy('title') as $attribute)
                                                             <div class="col-4 text-capitalize form-check mb-2"
                                                                 style="">
                                                                 <input type="checkbox" class="form-check-input"
@@ -353,18 +353,18 @@
                 contentType: false,
                 processData: false,
                 success: function(data) {
-                    //console.log(data); // Check the success response in the console
-
                     if (data.success) {
-                        $('#addModal').modal('hide'); // Close modal
+                        $('#addStock').modal('hide');
                         toastr.success(data.message);
-                        $('#addStockForm')[0].reset();
-                        setTimeout(function() {
-                            window.location.reload(); // Reload the page to see the new brand
-                        }, 1500);
-                    } else {
-                        for (let field in data.errors) {
-                            $('#' + field + '_error').text(data.errors[field][0]); // Show error
+                        $('#addAttributeStockForm')[0].reset();
+
+                        // Update table instantly
+                        const attr = data.newStock.attribute_ids;
+                        const row = $(`button[data-attribute-ids='${attr}']`).closest('tr');
+
+                        if (row.length) {
+                            row.find('td:nth-child(3)').text(data.newStock.stock);
+                            row.find('button').removeClass('btn-success').addClass('btn-primary');
                         }
                     }
                 },
@@ -424,6 +424,7 @@
                 }
             });
         }
+        
     </script>
 
     {{-- Delete Stock  --}}
@@ -456,10 +457,10 @@
                             if (response.success) {
                                 Swal.fire('Deleted!', response.message, 'success');
                                 toastr.success('Deleted Successfully.');
-                                setTimeout(function() {
-                                    window.location
-                                        .reload(); // Reload the page to see the changes
-                                }, 1500);
+                                // setTimeout(function() {
+                                //     window.location
+                                //         .reload(); // Reload the page to see the changes
+                                // }, 1500);
                             } else {
                                 toastr.error('Failed to delete the Stock.');
                             }

@@ -121,38 +121,44 @@
 
                                     @if ($attributes && $attributes->attribute_ids)
                                         @php
-                                            // Assuming $attributes is an object with attribute_ids as a string
+                                            // Convert the attribute_ids string to an array
                                             $attributes = explode(',', $attributes->attribute_ids);
 
-                                            // Fetch all attributes based on the IDs
+                                            // Fetch all attribute models based on those IDs
                                             $attributeModels = App\Models\Product_attribute::whereIn(
                                                 'id',
                                                 $attributes,
                                             )->get();
 
-                                            // Group attributes by their attribute set ID
+                                            // Group attributes by their attribute_set_id
                                             $groupedAttributes = $attributeModels->groupBy('attribute_set_id');
                                         @endphp
+
                                         <input type="hidden" name="product_id" value="{{ $selected_product->id }}">
-                                        @forelse($groupedAttributes as $attributeSetId => $attributes)
+
+                                        {{-- Loop through grouped attributes --}}
+                                        @forelse ($groupedAttributes as $attributeSetId => $attributes)
+                                            @php
+                                                // Sort attributes by title (ascending)
+                                                $sortedAttributes = $attributes->sortBy('title');
+
+                                                // Fetch attribute set info
+                                                $set = App\Models\Product_attribute_set::find($attributeSetId);
+                                            @endphp
+
                                             <div class="product-packege">
                                                 <div class="product-title">
-                                                    @php
-                                                        // Fetch the attribute set title
-                                                        $set = App\Models\Product_attribute_set::find($attributeSetId);
-                                                    @endphp
                                                     <h4 style="font-weight: bold">{{ $set->title ?? ' ' }}</h4>
                                                 </div>
 
                                                 <ul class="select-packege">
-                                                    @forelse($attributes as $index => $attribute)
+                                                    @forelse ($sortedAttributes as $index => $attribute)
                                                         <li>
                                                             <input type="radio"
                                                                 name="attribute_set_{{ $attributeSetId }}"
                                                                 value="{{ $attribute->id }}"
                                                                 id="attr_{{ $attribute->id }}"
-                                                                {{ $index === 0 ? 'checked' : '' }}>
-                                                            <!-- Auto-select the first attribute -->
+                                                                {{ $loop->first ? 'checked' : '' }}>
                                                             <label for="attr_{{ $attribute->id }}"
                                                                 class="attribute-label">{{ $attribute->title }}</label>
                                                         </li>
@@ -167,6 +173,7 @@
                                     @else
                                         <input type="hidden" name="product_id" value="{{ $selected_product->id }}">
                                     @endif
+
 
                                     <div class="note-box product-packege">
                                         <div class="cart_qty qty-box product-qty">
