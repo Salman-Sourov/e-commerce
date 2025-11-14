@@ -133,20 +133,18 @@
                                     <tr class="product-box-contain">
                                         <td class="product-detail">
                                             <div class="product border-0">
-                                                <a href="{{ route('product.details', $key) }}" class="product-image">
+                                                <a href="{{ route('product.details', $key) }}" class="product-image" target="_blank"> 
                                                     <img src="{{ asset($cart['image']) }}" alt="">
                                                 </a>
                                             </div>
                                         </td>
-                                        <td class="name">
-                                            <a href="{{ route('product.details', $key) }}">
+                                        <td class="name" data-label="Name">
+                                            <a href="{{ route('product.details', $key) }} " target="_blank">
                                                 {{ $cart['name'] }}
                                             </a>
                                         </td>
-                                        <td class="price text-center">৳ {{ $cart['price'] }}</td>
-                                        <td class="quantity text-centre">{{ $cart['quantity'] }}</td>
-
-
+                                        <td class="price text-center" data-label="Price">৳ {{ $cart['price'] }}</td>
+                                        <td class="quantity text-centre" data-label="Qty">{{ $cart['quantity'] }}</td>
                                         @if (isset($cart['attributes']) && $cart['attributes'])
                                             @php
                                                 $explode_attributes = explode(',', $cart['attributes']);
@@ -159,7 +157,7 @@
 
                                             @endphp
 
-                                            <td class="attribute">
+                                            <td class="attribute" data-label="Attributes">
                                                 @if ($attributes->isNotEmpty())
                                                     @php
                                                         $total_attributes = count($attributes);
@@ -179,10 +177,10 @@
 
                                             </td>
                                         @else
-                                            <td class="attribute">X</td>
+                                            <td class="attribute" data-label="Attributes">X</td>
                                         @endif
 
-                                        <td class="subtotal">৳ {{ $cart['price'] * $cart['quantity'] }}</td>
+                                        <td class="subtotal" data-label="Total">৳ {{ $cart['price'] * $cart['quantity'] }}</td>
                                         <td class="remove close_button">
                                             <a class="" data-id="{{ $key }}" onclick="closeCart()">
                                                 <i class="fa fa-trash"></i>
