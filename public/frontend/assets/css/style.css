@@ -30092,6 +30092,14 @@ header .offcanvas-backdrop {
     font-weight: 550;
 }
 
+.btn-animation-category {
+    background: linear-gradient(90deg, #144682 0%, #08356a 100%) !important;
+    padding: 9px 97px;
+    color: #f0f0f0 !important;
+    font-size: 17px;
+    font-weight: 550;
+}
+
 
 .banner-contain .banner-details h3 {
     color: #ffffff !important;
@@ -30202,7 +30210,7 @@ input[type="radio"]:checked+.attribute-label {
     font-weight: bold !important;
 }
 
-.product-image img {
+.check-product-image img {
     width: 100px !important;
     /* Fixed width for images */
     height: auto !important;
@@ -30280,6 +30288,14 @@ input[type="radio"]:checked+.attribute-label {
         height: auto !important;
         /* Maintain the aspect ratio */
     }
+
+    .btn-animation-category {
+    background: linear-gradient(90deg, #144682 0%, #08356a 100%) !important;
+    padding: 9px 44px;
+    color: #f0f0f0 !important;
+    font-size: 17px;
+    font-weight: 550;
+}
 }
 
 .mobile-cart-item {

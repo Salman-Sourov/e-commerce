@@ -452,12 +452,10 @@ class ProductController extends Controller
 
     public function productDelete(Request $request, $id)
     {
-        //dd('hello');
         $product = Product::findOrFail($id);
-        //dd($product);
 
-        if($product) {
- 
+        if ($product) {
+
             if (!empty($product->thumbnail) && file_exists(public_path($product->thumbnail))) {
                 unlink(public_path($product->thumbnail));
             }
@@ -473,6 +471,8 @@ class ProductController extends Controller
                 }
             }
 
+            Product_category_product::where('product_id', $id)->delete();
+            
             $product->delete();
 
             return response()->json([
@@ -480,7 +480,5 @@ class ProductController extends Controller
                 'message' => 'Product deleted successfully.'
             ]);
         }
-
-        
     }
 }

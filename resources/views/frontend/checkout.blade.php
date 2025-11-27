@@ -133,7 +133,7 @@
                                     <tr class="product-box-contain">
                                         <td class="product-detail">
                                             <div class="product border-0">
-                                                <a href="{{ route('product.details', $key) }}" class="product-image" target="_blank"> 
+                                                <a href="{{ route('product.details', $key) }}" class="check-product-image" target="_blank"> 
                                                     <img src="{{ asset($cart['image']) }}" alt="">
                                                 </a>
                                             </div>

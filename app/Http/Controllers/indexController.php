@@ -39,11 +39,9 @@ class indexController extends Controller
         $category_product = Product_category::with('translations', 'hasChild', 'totalProducts')
             ->where('status', 'active')  // Filter by active status
             ->where('id', $id)           // Filter by the specific id
-            ->first();
-
-        $category_name = Product_category::findOrFail($id);
+            ->firstOrFail();
         // dd($category_product);
-        return view('frontend.category_detail', compact('categories', 'brands', 'products', 'category_name', 'category_product', 'carts'));
+        return view('frontend.category_detail', compact('categories', 'brands', 'products', 'category_product', 'carts'));
     }
 
     public function brandDetails($id)
@@ -93,7 +91,7 @@ class indexController extends Controller
             ->where('id',  $category_product->category_id) // Exclude the current product
             ->first();
 
-        // dd($category_product);
+        // dd($selected_product);
 
         return view('frontend.product_detail', compact('categories', 'brands', 'products', 'selected_product', 'category_product', 'trending_products', 'related_products', 'attributes', 'carts', 'featured_products'));
     }

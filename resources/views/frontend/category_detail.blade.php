@@ -1,4 +1,4 @@
-<title>{{ $category_name->name }} - EMPO BD</title>
+<title>{{ $category_product->name }} - EMPO BD</title>
 @extends('frontend.frontend_dashboard')
 @section('main')
     <section class="breadscrumb-section pt-0">
@@ -6,7 +6,7 @@
             <div class="row">
                 <div class="col-12">
                     <div class="breadscrumb-contain">
-                        <h2>{{ $category_name->name }}</h2>
+                        <h2>{{ $category_product->name }}</h2>
                         <nav>
                             <ol class="breadcrumb mb-0">
                                 <li class="breadcrumb-item">
@@ -14,7 +14,7 @@
                                         <i class="fa-solid fa-house"></i>
                                     </a>
                                 </li>
-                                <li class="breadcrumb-item active" aria-current="page">{{ $category_name->name }}</li>
+                                <li class="breadcrumb-item active" aria-current="page">{{ $category_product->name }}</li>
                             </ol>
                         </nav>
                     </div>
@@ -24,54 +24,53 @@
     </section>
 
     <!-- <section>
-                            <div class="container-fluid-lg">
-                                <div class="row">
-                                    <div class="col-12">
-                                        <div class="slider-1 slider-animate product-wrapper no-arrow">
-                                            <div>
-                                                <div class="banner-contain-2 hover-effect">
-                                                    <img src="../assets/images/shop/1.jpg" class="bg-img rounded-3 blur-up lazyload" alt="">
-                                                    <div
-                                                        class="banner-detail p-center-right position-relative shop-banner ms-auto banner-small">
-                                                        <div>
-                                                            <h2>Healthy, nutritious & Tasty Fruits & Veggies</h2>
-                                                            <h3>Save upto 50%</h3>
+                                                    <div class="container-fluid-lg">
+                                                        <div class="row">
+                                                            <div class="col-12">
+                                                                <div class="slider-1 slider-animate product-wrapper no-arrow">
+                                                                    <div>
+                                                                        <div class="banner-contain-2 hover-effect">
+                                                                            <img src="../assets/images/shop/1.jpg" class="bg-img rounded-3 blur-up lazyload" alt="">
+                                                                            <div
+                                                                                class="banner-detail p-center-right position-relative shop-banner ms-auto banner-small">
+                                                                                <div>
+                                                                                    <h2>Healthy, nutritious & Tasty Fruits & Veggies</h2>
+                                                                                    <h3>Save upto 50%</h3>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div>
+                                                                        <div class="banner-contain-2 hover-effect">
+                                                                            <img src="../assets/images/shop/1.jpg" class="bg-img rounded-3 blur-up lazyload" alt="">
+                                                                            <div
+                                                                                class="banner-detail p-center-right position-relative shop-banner ms-auto banner-small">
+                                                                                <div>
+                                                                                    <h2>Healthy, nutritious & Tasty Fruits & Veggies</h2>
+                                                                                    <h3>Save upto 50%</h3>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div>
+                                                                        <div class="banner-contain-2 hover-effect">
+                                                                            <img src="../assets/images/shop/1.jpg" class="bg-img rounded-3 blur-up lazyload" alt="">
+                                                                            <div
+                                                                                class="banner-detail p-center-right position-relative shop-banner ms-auto banner-small">
+                                                                                <div>
+                                                                                    <h2>Healthy, nutritious & Tasty Fruits & Veggies</h2>
+                                                                                    <h3>Save upto 50%</h3>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
                                                         </div>
                                                     </div>
-                                                </div>
-                                            </div>
-
-                                            <div>
-                                                <div class="banner-contain-2 hover-effect">
-                                                    <img src="../assets/images/shop/1.jpg" class="bg-img rounded-3 blur-up lazyload" alt="">
-                                                    <div
-                                                        class="banner-detail p-center-right position-relative shop-banner ms-auto banner-small">
-                                                        <div>
-                                                            <h2>Healthy, nutritious & Tasty Fruits & Veggies</h2>
-                                                            <h3>Save upto 50%</h3>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <div>
-                                                <div class="banner-contain-2 hover-effect">
-                                                    <img src="../assets/images/shop/1.jpg" class="bg-img rounded-3 blur-up lazyload" alt="">
-                                                    <div
-                                                        class="banner-detail p-center-right position-relative shop-banner ms-auto banner-small">
-                                                        <div>
-                                                            <h2>Healthy, nutritious & Tasty Fruits & Veggies</h2>
-                                                            <h3>Save upto 50%</h3>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </section> -->
-
+                                                </section> -->
 
     <section class="section-b-space shop-section">
         <div class="container-fluid-lg">
@@ -125,7 +124,7 @@
                     <div
                         class="row g-sm-4 g-3 row-cols-xxl-5 row-cols-xl-4 row-cols-lg-2 row-cols-md-3 row-cols-2 product-list-section">
                         @forelse ($category_product->totalProducts as $product)
-                            {{-- @if ($category_product->parent_id != null && $product->products) --}}
+                            @if ($product->products->status == 'active')
                                 <div>
                                     <div class="product-box-3 h-100 wow fadeInUp">
                                         <div class="product-header">
@@ -166,14 +165,16 @@
                                                     <del>{{ $product->products->price ?? '' }}</del>
                                                     <br><br>
                                                 </h5>
-                                                <a href="{{ route('product.details', $product->products->id) }}">
-                                                    <button class="btn btn-sm btn-animation">Buy Now</button>
-                                                </a>
+                                                <div class="add-to-cart-box">
+                                                    <a href="{{ route('product.details', $product->products->id) }}">
+                                                        <button class="btn btn-sm btn-animation-category">Buy Now</button>
+                                                    </a>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            {{-- @endif --}}
+                            @endif
                         @empty
                             <p>No products available</p>
                         @endforelse
