@@ -113,7 +113,7 @@
                                                     </h5>
                                                     <div class="add-to-cart-box">
                                                         <a href="{{ route('product.details', $product->id) }}">
-                                                            <button class="btn btn-sm btn-animation">Buy Now</button>
+                                                            <button class="btn btn-sm btn-animation-category">Buy Now</button>
                                                         </a>
                                                     </div>
                                                 </div>

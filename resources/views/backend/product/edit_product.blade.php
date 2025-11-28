@@ -33,7 +33,7 @@
 
                                 <div class="row">
                                     <div class="col-sm-6">
-                                        <div class="form-group mb-3">
+                                        <div class="form-group mb-3 text-danger">
                                             <label class="form-label">Product Name *</label>
                                             <input type="text" name="product_name" class="form-control"
                                                 value="{{ $product->name }}">
@@ -44,7 +44,7 @@
                                     </div>
 
                                     <div class="col-sm-6">
-                                        <div class="form-group mb-3">
+                                        <div class="form-group mb-3 text-danger">
                                             <label for="banglaInputText" class="form-label">Name in Bangla *</label>
                                             <input type="text" name="product_name_bangla" class="form-control"
                                                 id="banglaInputText"
@@ -56,7 +56,7 @@
                                     </div>
 
                                     <div class="col-sm-2">
-                                        <div class="form-group mb-3">
+                                        <div class="form-group mb-3 text-danger">
                                             <label class="form-label">Product Quantity *</label>
                                             <input type="text" name="quantity" class="form-control" placeholder="N/A"
                                                 value="{{ old('quantity', $product->quantity) }}">
@@ -67,7 +67,7 @@
                                     </div>
 
                                     <div class="col-sm-2">
-                                        <div class="form-group mb-3">
+                                        <div class="form-group mb-3 text-danger">
                                             <label for="brand" class="form-label">Brand *</label>
                                             <select name="brand_id" class="form-control" id="brand">
                                                 <option selected="" disabled="">Select a Brand</option>
@@ -85,7 +85,7 @@
                                     </div>
 
                                     <div class="col-sm-2">
-                                        <div class="form-group mb-3">
+                                        <div class="form-group mb-3 text-danger">
                                             <label for="category" class="form-label">Category *</label>
                                             <input type="hidden" id="sub_category_id"
                                                 value="{{ $product->categories->category_id }}">
@@ -123,12 +123,12 @@
                                         </div>
                                     </div>
 
-                                    <div class="col-sm-2">
+                                    <div class="col-sm-2 text-danger">
                                         <div class="form-group mb-3">
-                                            <label class="form-label">Price (Old Price)</label>
-                                            <input type="text" name="price" class="form-control" placeholder="N/A"
-                                                value="{{ old('price', $product->price) }}">
-                                            @error('price')
+                                            <label class="form-label">Sale Price (Sell/New Price) *</label>
+                                            <input type="text" name="sale_price" class="form-control" placeholder="N/A"
+                                                value="{{ old('sale_price', $product->sale_price) }}">
+                                            @error('sale_price')
                                                 <span class="text-danger">{{ $message }}</span>
                                             @enderror
                                         </div>
@@ -136,10 +136,10 @@
 
                                     <div class="col-sm-2">
                                         <div class="form-group mb-3">
-                                            <label class="form-label">Sale Price (Sell/New Price) *</label>
-                                            <input type="text" name="sale_price" class="form-control" placeholder="N/A"
-                                                value="{{ old('sale_price', $product->sale_price) }}">
-                                            @error('sale_price')
+                                            <label class="form-label">Price (Old Price)</label>
+                                            <input type="text" name="price" class="form-control" placeholder="N/A"
+                                                value="{{ old('price', $product->price) }}">
+                                            @error('price')
                                                 <span class="text-danger">{{ $message }}</span>
                                             @enderror
                                         </div>
@@ -200,7 +200,7 @@
                                     </div> --}}
 
                                     <div class="row">
-                                        <div class="col-sm-6">
+                                        <div class="col-sm-6 text-danger">
                                             <div class="mb-3">
                                                 <label class="form-label">Short Content*</label>
                                                 <textarea name="short_content" class="form-control" id="exampleFormControlTextarea1" rows="10"
@@ -223,7 +223,7 @@
                                     </div>
 
                                     <div class="col-sm-6">
-                                        <div class="form-group">
+                                        <div class="form-group text-danger">
                                             <label class="form-label">Main Thumbnail*</label>
                                             <!-- File input to upload a new thumbnail -->
                                             <input type="file" name="thumbnail" class="form-control" id="image">

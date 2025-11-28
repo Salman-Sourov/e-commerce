@@ -295,10 +295,7 @@
 
     <script>
         function categoryChanged() {
-            console.log('hello');
             var categoryId = $('#category_id').val();
-            // Get selected category ID
-
 
             if (categoryId) {
                 $.ajax({

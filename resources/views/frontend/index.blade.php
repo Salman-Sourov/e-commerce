@@ -42,21 +42,6 @@
                                     class="d-block w-100 bg-img blur-up lazyload fixed-size" alt="Banner 4">
                             </div>
                         </div>
-
-                        <!-- Text Overlay (remains fixed) -->
-                        {{-- <div
-                            class="home-detail p-center-left w-75 position-absolute top-50 start-0 translate-middle-y ps-4">
-                            <div>
-                                <h6>Exclusive offer</h6>
-                                <h1 class="w-75 text-uppercase poster-1">Stay home & delivered your
-                                    <span class="daily">Daily Needs</span>
-                                </h1>
-                                <p class="w-58 d-none d-sm-block">
-                                    Many organizations have issued official statements encouraging people to reduce their
-                                    intake of sugary drinks.
-                                </p>
-                            </div>
-                        </div> --}}
                     </div>
                 </div>
 
@@ -65,14 +50,6 @@
                         <img src="{{ asset('frontend') }}/assets/images/banner/empobd_ad.jpg"
                             class="bg-img blur-up lazyload" alt="">
                         <div class="home-detail p-top-left home-p-sm w-75">
-                            <div>
-                                {{-- <h2 class="mt-0 text-danger">45% <span class="discount text-title">OFF</span>
-                                </h2> --}}
-                                {{-- <h3 class="theme-color">Real Refresement</h3>
-                                <h5 class="text-content">Only this week, Don't miss..</h5> --}}
-                                {{-- <a href="shop-left-sidebar.html" class="shop-button">Shop Now <i
-                                        class="fa-solid fa-right-long ms-2"></i></a> --}}
-                            </div>
                         </div>
                     </div>
                 </div>
