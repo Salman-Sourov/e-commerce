@@ -1,8 +1,8 @@
 # Laravel Single-Vendor E-Commerce Platform
 
-Welcome to the **Laravel Single-Vendor E-Commerce** project! This repository powers a fully functional online store for **Elhaam BD**, a live e-commerce platform based in Dhaka, Bangladesh.
+Welcome to the **Laravel Single-Vendor E-Commerce** project! This repository powers a fully functional online store for **EMPO BD**, a live e-commerce platform based in Dhaka, Bangladesh.
 
-[Visit the live site → **elhaambd.com**](https://elhaambd.com/) :contentReference[oaicite:0]{index=0}
+[Visit the live site → **https://empobd.store/**](https://empobd.store/) :contentReference[oaicite:0]{index=0}
 
 ---
 
@@ -33,14 +33,14 @@ This is a Laravel-based, single-vendor e-commerce platform designed for scalabil
 - **Responsive Design**: Mobile-friendly UI for seamless user experiences across devices. (Implied from live site)  
 - **User Authentication**: Login, registration, and account management flows. :contentReference[oaicite:4]{index=4}  
 - **Shopping Cart & Checkout**: Add to cart and checkout functionality with live updates. :contentReference[oaicite:5]{index=5}  
-- **Contact & Support Info**: 24/7 hotline +8801791586242, email support@elhaambd.com, and physical address in Banasree, Rampura, Dhaka. :contentReference[oaicite:6]{index=6}  
+- **Contact & Support Info**: 24/7 hotline +8801791586242, email support@empobd.com, and physical address in Banasree, Rampura, Dhaka. :contentReference[oaicite:6]{index=6}  
 - **Admin Panel (if applicable)**: Manage products, categories, orders, and users. *(Add details if custom-built)*
 
 ---
 
 ###  Live Demo
 
-Explore the store and its offerings: **https://elhaambd.com/** :contentReference[oaicite:7]{index=7}
+Explore the store and its offerings: **https://empobd.store/** :contentReference[oaicite:7]{index=7}
 
 ---
 
