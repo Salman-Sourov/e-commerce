@@ -1,7 +1,7 @@
 <nav class="sidebar">
     <div class="sidebar-header">
         <a href="{{ url('/') }}" class="sidebar-brand" target="_blank">
-            EmpoTech <span>BD</span>
+            EMPO <span>BD</span>
         </a>
     </div>
 
@@ -14,7 +14,7 @@
                     <span class="link-title">Dashboard</span>
                 </a>
             </li>
-            <li class="nav-item nav-category">Elhaam BD</li>
+            <li class="nav-item nav-category">EMPO BD</li>
 
             {{-- Brands --}}
             <li class="nav-item">

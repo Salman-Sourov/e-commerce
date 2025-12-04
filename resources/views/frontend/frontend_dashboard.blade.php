@@ -2,28 +2,28 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
+       <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     {{-- ✅ SEO Meta --}}
     <title>@yield('title', 'EMPO BD | Smart E-Commerce Platform')</title>
-    <meta name="description" content="@yield('meta_description', 'Buy products online at the best prices from EmpoTech BD. Fast delivery, secure payment & trusted sellers.')">
-    <meta name="keywords" content="@yield('meta_keywords', 'ecommerce, bangladesh, empotech, online shop, tech store, empotechbd')">
-    <meta name="author" content="EmpoTech BD">
+    <meta name="description" content="@yield('meta_description', 'Buy products online at the best prices from EMPO BD. Fast delivery, secure payment & trusted sellers.')">
+    <meta name="keywords" content="@yield('meta_keywords', 'ecommerce, bangladesh, EMPO, online shop, tech store, empobd')">
+    <meta name="author" content="EMPO BD">
 
     {{-- ✅ Open Graph (for Facebook / WhatsApp) --}}
-    <meta property="og:title" content="@yield('og_title', 'ECOM EmpoTech BD')" />
-    <meta property="og:description" content="@yield('og_description', 'EmpoTech BD – Trusted Online Shopping Platform in Bangladesh')" />
-    <meta property="og:image" content="@yield('og_image', asset('frontend/assets/images/favicon/empotech.png'))" />
-    <meta property="og:url" content="https://ecom.empotechbd.com/" />
+    <meta property="og:title" content="@yield('og_title', 'EMPO BD')" />
+    <meta property="og:description" content="@yield('og_description', 'EMPO BD – Trusted Online Shopping Platform in Bangladesh')" />
+    <meta property="og:image" content="@yield('og_image', asset('frontend/assets/images/logo/ElhaamBD_logo.png'))" />
+    <meta property="og:url" content="https://empobd.store/" />
     <meta property="og:type" content="website" />
 
     {{-- ✅ Twitter Card --}}
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="@yield('twitter_title', 'ECOM EmpoTech BD')">
-    <meta name="twitter:description" content="@yield('twitter_description', 'EmpoTech BD – Trusted Online Shopping Platform in Bangladesh')">
-    <meta name="twitter:image" content="@yield('twitter_image', asset('frontend/assets/images/favicon/empotech.png'))">
+    <meta name="twitter:title" content="@yield('twitter_title', 'EMPO BD')">
+    <meta name="twitter:description" content="@yield('twitter_description', 'EMPO BD – Trusted Online Shopping Platform in Bangladesh')">
+    <meta name="twitter:image" content="@yield('twitter_image', asset('frontend/assets/images/favicon/empobd.png'))">
 
     {{-- ✅ Canonical URL --}}
     <link rel="canonical" href="https://ecom.empotechbd.com/" />
