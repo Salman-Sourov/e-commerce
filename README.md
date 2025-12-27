@@ -1,62 +1,39 @@
-# Laravel Single-Vendor E-Commerce Platform
+# Premium Single Vendor E-Commerce Platform
+### Developed by [EMPO Tech BD]
 
-Welcome to the **Laravel Single-Vendor E-Commerce** project! This repository powers a fully functional online store for **EMPO BD**, a live e-commerce platform based in Dhaka, Bangladesh.
+A robust, enterprise-grade e-commerce solution built with the Laravel framework. This platform is designed for high performance, ease of use, and seamless management of online sales.
 
-[Visit the live site → **https://empobd.store/**](https://empobd.store/) :contentReference[oaicite:0]{index=0}
-
----
-
-###  Table of Contents
-
-- [About](#about)  
-- [Features](#features)  
-- [Live Demo](#live-demo)  
-- [Tech Stack](#tech-stack)  
-- [Installation](#installation)  
-- [Configuration](#configuration)  
-- [Usage](#usage)  
-- [Contributing](#contributing)  
-- [License](#license)
+## 🛑 Commercial License Notice
+**This project is NOT free software.**
+The source code provided in this repository is for demonstration and portfolio purposes only. Any unauthorized use, reproduction, or distribution of this code without a valid commercial license from **EMPO Tech BD** is strictly prohibited.
 
 ---
 
-###  About
+## 🚀 Live Demonstration
+Check out the platform in action: **[Visit empobd.store](https://empobd.store/)**
 
-This is a Laravel-based, single-vendor e-commerce platform designed for scalability and maintainability. The project features elegant and intuitive code, tailored for online retail experiences — as showcased in Elhaam BD: a dynamic store offering categories such as fashion, electronics, home & lifestyle, groceries, and more. :contentReference[oaicite:1]{index=1}
-
----
-
-###  Features
-
-- **Multi-Category Product Listings**: Men’s & Boys’ Fashion, Women’s & Girls’ Fashion, Electronics, Sports & Outdoors, Home & Lifestyle, Groceries, Health & Beauty, Watches/Bags/Jewellery, Mother & Baby. :contentReference[oaicite:2]{index=2}  
-- **Special Offers & Trending Products**: Highlighted weekly deals and featured items like boots, hoodies, T-shirts, smartwatches, and more. :contentReference[oaicite:3]{index=3}  
-- **Responsive Design**: Mobile-friendly UI for seamless user experiences across devices. (Implied from live site)  
-- **User Authentication**: Login, registration, and account management flows. :contentReference[oaicite:4]{index=4}  
-- **Shopping Cart & Checkout**: Add to cart and checkout functionality with live updates. :contentReference[oaicite:5]{index=5}  
-- **Contact & Support Info**: 24/7 hotline +8801791586242, email support@empobd.com, and physical address in Banasree, Rampura, Dhaka. :contentReference[oaicite:6]{index=6}  
-- **Admin Panel (if applicable)**: Manage products, categories, orders, and users. *(Add details if custom-built)*
+## 🛠️ Key Features
+* **Professional Dashboard:** Advanced analytics and management for products, orders, and users.
+* **Optimized Performance:** Fast-loading pages and smooth AJAX-based interactions.
+* **Mobile-First Design:** Fully responsive UI/UX for a premium shopping experience on any device.
+* **Secure Architecture:** Built using industry-standard security practices via Laravel.
+* **Dynamic Inventory:** Easy management of categories, sub-categories, and stock levels.
+* **Customizable:** Highly modular code that can be tailored to specific business needs.
 
 ---
 
-###  Live Demo
+## 💰 How to Purchase
+If you are interested in buying this software or hiring us for a custom project, please reach out to us through our official channels:
 
-Explore the store and its offerings: **https://empobd.store/** :contentReference[oaicite:7]{index=7}
+* **Official Website:** [empotechbd.com](https://empotechbd.com)
+* **Facebook:** [EMPO Tech BD Official](https://www.facebook.com/empotechbdofficial)
+* **Email:** [empotechbd19@gmail.com](mailto:empotechbd19@gmail.com)
+
+**Purchase Includes:**
+1.  Complete Source Code & Database Schema.
+2.  Full Installation & Deployment Support.
+3.  Initial Configuration & Branding.
+4.  Technical Documentation.
 
 ---
-
-###  Tech Stack
-
-- **Backend**: Laravel (full MVC framework with elegant syntax) :contentReference[oaicite:8]{index=8}  
-- **Frontend**: Blade templates, HTML, CSS, JavaScript (possibly Tailwind or custom styling) :contentReference[oaicite:9]{index=9}  
-- **Build Tools**: Vite, PostCSS (as indicated by project files: `vite.config.js`, `postcss.config.js`) :contentReference[oaicite:10]{index=10}  
-- **Styles**: SCSS, possibly with utility-first CSS frameworks (`tailwind.config.js`) :contentReference[oaicite:11]{index=11}  
-- **ORM & Database**: Laravel Eloquent with migrations for flexible schema management :contentReference[oaicite:12]{index=12}
-
----
-
-###  Installation
-
-1. **Clone the repo**  
-   ```bash
-   git clone https://github.com/Salman-Sourov/e-commerce.git
-   cd e-commerce
+© 2024 **EMPO Tech BD**. All Rights Reserved.
