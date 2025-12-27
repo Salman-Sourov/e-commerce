@@ -105,9 +105,35 @@
 
     //Add active class to nav-link based on url dynamically
     function addActiveClass(element) {
-        if (current === "") {
+        var href = element.attr('href');
+        if (!href) return;
+        
+        // Get the full current pathname
+        var currentPath = location.pathname;
+        // Normalize current path (remove trailing slash, keep leading slash)
+        currentPath = currentPath.replace(/\/$/, '') || '/';
+        
+        // Extract pathname from href (handle both full URLs and relative paths)
+        var hrefPath = href;
+        try {
+          // If it's a full URL, extract just the pathname
+          if (href.indexOf('http://') === 0 || href.indexOf('https://') === 0) {
+            var urlObj = new URL(href);
+            hrefPath = urlObj.pathname;
+          } else {
+            // For relative paths, remove query strings and hash
+            hrefPath = href.split('?')[0].split('#')[0];
+          }
+        } catch(e) {
+          // Fallback: just remove query strings and hash
+          hrefPath = href.split('?')[0].split('#')[0];
+        }
+        // Normalize href path (remove trailing slash, keep leading slash)
+        hrefPath = hrefPath.replace(/\/$/, '') || '/';
+        
+        if (currentPath === "/" || currentPath === "/index.html") {
           //for root url
-          if (element.attr('href').indexOf("index.html") !== -1) {
+          if (hrefPath === "/" || hrefPath === "/index.html" || hrefPath.indexOf("/index.html") !== -1) {
             element.parents('.nav-item').last().addClass('active');
             if (element.parents('.sub-menu').length) {
               element.closest('.collapse').addClass('show');
@@ -115,8 +141,9 @@
             }
           }
         } else {
-          //for other url
-          if (element.attr('href').indexOf(current) !== -1) {
+          //for other url - exact path match
+          // This ensures /brand/create only matches /brand/create, not /category/create
+          if (currentPath === hrefPath) {
             element.parents('.nav-item').last().addClass('active');
             if (element.parents('.sub-menu').length) {
               element.closest('.collapse').addClass('show');

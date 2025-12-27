@@ -36,7 +36,11 @@ class indexController extends Controller
         $products = Product::with('translations', 'inventory_stocks', 'brands', 'categories')->where('status', 'active')->latest()->get();
         $carts = session()->get('cart');
 
-        $category_product = Product_category::with('translations', 'hasChild', 'totalProducts')
+        $category_product = Product_category::with(['translations', 'hasChild', 'totalProducts' => function($query) {
+                $query->whereHas('products', function($q) {
+                    $q->where('status', 'active');
+                })->with('products');
+            }])
             ->where('status', 'active')  // Filter by active status
             ->where('id', $id)           // Filter by the specific id
             ->firstOrFail();
